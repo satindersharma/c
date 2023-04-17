@@ -7,3 +7,8 @@
 #### Terminal > Run Build Task command (`Ctrl+Shift+B`)
 
 #### run by `.\helloworld`
+
+
+
+<< stream insertion operator
+>> stream exraction operator
