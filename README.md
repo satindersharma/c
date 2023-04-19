@@ -60,8 +60,11 @@ int iFileSize // hugarian case (just like pascal case but the data type is in th
 
 
 
+using namespace std;
 
+now you can use cout instead of std::cout
 
+endl  to make a new line charactor
 
 
 
