@@ -259,10 +259,23 @@ short number 100;
 int another {number}
 
 
+cout << sizeof(int); // size of bytes
 
-cout << numeric_limits<int>::min() << endl
+
+cout << numeric_limits<int>::min() << endl                // numeric_limits is a class
      << numeric_limits<int>::max()                        //this line will let you know the limit of the integer values
 
 
+     
+#### what happen if we store value larger than the limit
+
+int number = numeric_limits<int>::max();
+number++;
+cout << number;  // this will result in smallest value, this is called overflow
+     
+     
+int number = numeric_limits<int>::min()
+number--;
+cout << number; // this will result in largest value, 
 
 
