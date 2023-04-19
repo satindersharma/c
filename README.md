@@ -212,6 +212,36 @@ char letter = 'a';  // use single qoute for character
 
 bool isValid = true // true/false
 
+we can also use auto , to let the complier infer the type of the variable
+
+auto isValid = true;
+
+
+int number 1.2;
+
+this will show 1 at terminal
+
+but a better way of intitalization
+
+int number {1.2} /// t his will show compilation errro as float is tried in the int type
+int number {}  // this will initilize to value 0
+
+
+number system
+
+demial (base 10)   0-9       255
+
+Binary (base 2)    0, 1      11111111
+
+hexa (base 16)     0-9, A-F  FF
+
+int number = 0b11111111;
+int number = 0xFF;
+
+
+unsigned int number = -255; // unsigned cause problem
+
+
 
 
 
