@@ -48,7 +48,16 @@ act like js const
 
 
 
-file_size // 
+int file_size // Snake Case
+
+int FileSIze // pascal case
+
+int fileSize // camel Case
+
+int iFileSize // hugarian case (just like pascal case but the data type is in the front) it is very old , not releven but is in the old window code, that time the ede+itor was ot that feature rich
+
+
+
 
 
 
