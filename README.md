@@ -241,7 +241,27 @@ int number = 0xFF;
 
 unsigned int number = -255; // unsigned cause problem
 
+unsigned int number = 0;
+number--;
+cout <<number   \\this will cause problem
 
+
+### Narrowing
+assigneing higher tpe values ot smaller type
+
+int number = 1'000'000;
+short another = number;
+
+
+reverse of it(this is not an issue)
+
+short number 100;
+int another {number}
+
+
+
+cout << numeric_limits<int>::min() << endl
+     << numeric_limits<int>::max()                        //this line will let you know the limit of the integer values
 
 
 
