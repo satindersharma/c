@@ -14,25 +14,16 @@
 
 
 
-•
-
-C++ is one of the oldest yet most popular programming languages in the world due to
+• C++ is one of the oldest yet most popular programming languages in the world due to
 
 its performance and efficiency.
 
 
 
-•
-
-It’s often used in building performance-critical applications, video games (especially
-
-with Unreal Engine), servers, operating systems, etc.
+• It’s often used in building performance-critical applications, video games (especially with Unreal Engine), servers, operating systems, etc.
 
 
-
-•
-
-To learn C++, you need to learn the syntax (grammar) of the language as well as C++
+• To learn C++, you need to learn the syntax (grammar) of the language as well as C++
 
 Standard Library, which is a collection of pre-written C++ code for solving common
 
