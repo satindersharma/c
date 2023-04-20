@@ -271,11 +271,63 @@ cout << numeric_limits<int>::min() << endl                // numeric_limits is a
 
 int number = numeric_limits<int>::max();
 number++;
-cout << number;  // this will result in smallest value, this is called overflow
+cout << number;  // this will result in smallest value, this is called overflow(the number was too big for it)
      
      
 int number = numeric_limits<int>::min()
 number--;
-cout << number; // this will result in largest value, 
+cout << number; // this will result in largest value, this is underflow(the nuber was too small for it)
+
+
+bool isvalid = false;
+cout << boolalpha << isValid; // otherwise this wll return 0 on termnal
+
+char for single
+string for seq of character
+
+computer reperenst it asnumber is numeric
+
+char ch = 'a'; // use singel qoute for char
+cout << ch;
+cout << +ch; // this will print the nueric reperesentaion of charactor a
+
+char ch = 98;
+cout << ch;
+
+string name = "ajay sharma"; // for sequence of character
+
+
+string name;
+cout << "Enter Your name";
+cin >> name;
+cout << "Hi " << name; // this will missout naythin after first whitespace
+
+use
+
+string name;
+cout << "Enter Your name";
+getline(cin,  name)
+cout << "Hi " << name; // this will show your name
+
+
+to store list of integer
+
+int numbers[5]; to write an array with the 5 integer values
+cout << numbers; // this will print the hexadecimal address of the array
+
+cout << numbers[0]; // this will print out 0
+cout << numbers[1]; // this will print out 0 // by default at all places it keep integer 0
+
+
+
+int numbers[5];
+numbers[1] = 10;
+cout << numbers[1];
+
+
+
+
+
+
 
 
