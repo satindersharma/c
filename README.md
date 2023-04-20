@@ -885,6 +885,7 @@ nested loop
 function
 
 if a function doesnot return a value then type void keyword
+```cpp
 viod greet(){
     cout << "hell" << endl;
     }
@@ -893,5 +894,17 @@ int main(){
     greet()
     cout << "o";
 }
+```
+
+```cpp
+viod greet(string firstName, string lastName){
+    cout << "hell" << firstName " " << lastName << endl;
+    }
+
+int main(){
+    greet("ajay","sharma")
+    cout << "done";
+}
+```
 
 
