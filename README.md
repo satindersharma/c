@@ -884,3 +884,14 @@ nested loop
  
 function
 
+if a function doesnot return a value then type void keyword
+viod greet(){
+    cout << "hell" << endl;
+    }
+
+int main(){
+    greet()
+    cout << "o";
+}
+
+
