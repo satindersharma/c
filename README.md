@@ -843,9 +843,44 @@ for (char ch:name) // we can loop over string also
 ```
 
 
+while loop
+
+```cpp
+int i = 1;
+while (i <= 5){
+    cout << i << endl;
+    i++;
+}  
+```
 
 
+do{  // braces are requied here
+     // do will run atleast one time
+}while()
 
+```cpp
+do{
+cout << "Enter a number "
+int number; // so take this variable outside of do
+cin >> number;
+} while (number < 1 || number > 5) // the number is not accsibe here, as in cpp vairable is on ly accible in the scope of the block in wich it declare
 
+```
 
+```cpp
+int number; // so take this variable outside of do
+do{
+cout << "Enter a number "
+
+cin >> number;
+} while (number < 1 || number > 5) // the number is not accsibe here, as in cpp vairable is on ly accible in the scope of the block in wich it declare
+
+```
+
+break & continue
+
+nested loop
+
+ 
+function
 
