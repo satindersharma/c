@@ -342,15 +342,11 @@ When we store a smaller value in a larger data type, the value gets automaticall
 
 have to explicit cast the value.
 
-•
-
-C-style casting involves prefixing a variable with the target data type in parentheses. In
+• C-style casting involves prefixing a variable with the target data type in parentheses. In
 
 C++, we use the static_cast operator.
 
-•
-
-C++ casting is safer because conversion problems can be caught at the compile-time.
+• C++ casting is safer because conversion problems can be caught at the compile-time.
 
 With C-style casting, we won’t know about conversion issues until the run-time
 
@@ -644,3 +640,212 @@ double z = x / y; this will return int, to solve this caste any one value
 
 double z = static_cast<double>(x) / y;
 ```
+
+
+comparison operator
+
+
+expression is a peiceof code that produce a value
+```cpp
+int x = 10;
+int y = 15;
+boal isValue = x != y;
+cout << boolalpha << isValue 
+```
+
+```cpp
+int x = 10;
+double y = 15;
+boal isValue = x == y; // c automatically convert the lower datatypes to upper data types
+cout << boolalpha << isValue
+```
+
+logical variable (&&, ||, !)
+
+```cpp
+int age = 18;
+bool isEledgible  = age > 18 && age < 65;   // c check from left to right
+cout << boolalpha << isEledgible;
+```
+
+```cpp
+int age = 18;
+bool isEledgible  = age > 18 || age < 65;   // c check from left to right, both are checked
+cout << boolalpha << isEledgible;
+```
+
+```cpp
+int age = 18;
+bool isEledgible  = age > 18 || age < 65;   // c check from left to right, both are checked
+cout << boolalpha << !isEledgible; // not logical operator
+```
+
+preority order
+() // higest prioritiy
+! 
+&&
+|| 
+
+
+
+```cpp
+bool a = true;
+bool b = false;
+bool c = false;
+bool result = b && !a;
+bool result = a || b && c;
+cout << boolalpha << result;
+```
+
+
+if statements
+
+
+```cpp
+int temp = 30;
+if (temp < 60)
+    cout << "Cold"
+```
+
+```cpp
+int temp = 70;
+if (temp < 60)
+   cout << "cold";
+cout << "warm";
+```
+
+
+If there is more than one statements in if the use paranthisis
+
+
+```cpp
+int temp = 70;
+if (temp < 60){
+   cout >> "new cout"
+   cout << "cold";
+   }
+cout << "warm";
+```
+
+
+```cpp
+int temp = 70;
+if (temp < 60)
+   cout << "cold";
+else if(temp > 20){
+    cout << "else if part"
+    }
+else
+   cout "else part"
+cout << "warm";
+```
+
+also we can write in one line
+
+```cpp
+int temp = 70;
+if (temp < 60) cout << "cold";
+else if(temp > 30) cout << "else if part";
+else cout "else part";
+cout << "warm";
+```
+
+nested if 
+
+```cpp
+int temp = 70;
+if (temp < 60)
+   cout << "cold";
+   if (temp < 60)
+    cout << "nested cold";
+else if(temp>30){
+    cout << "else if part"
+    }
+else
+   cout "else part"
+cout << "warm";
+```
+
+```cpp
+int sales = 1'000;
+if (sales > 10'000)
+   commision = .1;
+else
+   commision = .05;
+ // the below is same as the above 4 lines
+double commission = (sales > 10'000) ? .1 : .05;  condidition ? if value is true : if value is false
+```
+
+
+switch statement(to caire variablle with a set of values)
+
+```cpp
+cin >> input;
+
+switch (input){
+    case 1:
+        cout << "You selected 1";
+        break; // break is must other wise it will print case 2 also even it is not true
+    case 2:
+        cout << "you selected 2";
+        break;
+    default:
+        cout << "good bye" // as this is the last statement, there is no break statement needed as there is notheing to execute after that
+
+```
+
+loops
+
+to repeat 1 or more example
+```cpp
+for (int i = 0; i < 5; i++)  {   // intial value, condition, increment/decriment,      wrap in braces for more exp, controller
+  cout << i <<endl;
+}
+```
+
+
+```cpp
+for (int i = 5; i > 0; i--)  // intial value, condition, increment/decriment,      wrap in braces for more exp
+  cout << i <<endl;
+```
+
+
+```cpp
+int numbers[] = {1,2,3}
+for (int i = 0; i < 3; i++)
+    cout << numbers[i] << endl;
+```
+
+
+but we are hardcoding it (ie i < 3)
+```cpp
+int numbers[] = {1,2,3,4}
+// sizeof(numbers): 16  // this might not same on every os
+// sizeof(int): 4
+for (int i = 0; i < sizeof(numbers) / sizeof(int); i++)   // now this is dynamic, but there is a newer way in morder cpp
+    cout << numbers[i] << endl;
+```
+
+
+    
+    
+ range base for loop
+ ```cpp
+ for (int number:numbers)
+      cout << number << endl;
+      
+```
+
+ ```cpp
+string name = "Mosh Hamedani";
+for (char ch:name) // we can loop over string also
+    cout << ch << endl;
+```
+
+
+
+
+
+
+
+
