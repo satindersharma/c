@@ -11,18 +11,23 @@
 •
 C++ is one of the oldest yet most popular programming languages in the world due to
 its performance and efficiency.
+
 •
 It’s often used in building performance-critical applications, video games (especially
 with Unreal Engine), servers, operating systems, etc.
+
 •
 To learn C++, you need to learn the syntax (grammar) of the language as well as C++
 Standard Library, which is a collection of pre-written C++ code for solving common
 problems.
+
 •
 To write C++ applications, we often use an Integrated Development Environment
 (IDE). The most popular IDEs are MS Visual Studio, XCode, and CLion.
+
 •
 To run C++ applications, first we have to compile our C++ code to machine code.
+
 •
 The main() function is the starting point of a C++ program.
 
@@ -51,38 +56,50 @@ complie to machine code , we ge an executable, but it will run on the same os on
 
 
 We use variables to temporarily store data in the computer’s memory.
+
 •
 To declare a variable, we should specify its type and give it a meaningful name.
+
 •
 We should initialize variables before using them. Using an uninitialized variable can
 lead to unexpected behavior in our programs since these variables hold garbage values.
+
 •
 Unlike variables, the value of constants don’t change.
+
 •
 The common naming conventions used in C++ applications are: PascalCase,
 camelCase, and snake_case.
+
 •
 An expression is a piece of code that produces a value. A mathematical (arithmetic)
 expression consists of an operator (+, -, *, /, %) and two operands.
+
 •
 Multiplication and division operators have a higher priority than addition and
 subtraction operators. So, they’re applied first
 
 
 We can use parentheses to change the order of operators.
+
 •
 We use cout (pronounced sea-out) to write characters to the Standard Output Stream
 which represents the terminal or console window.
+
 •
 We use cin (pronounced sea-in) to read data from the Standard Input Stream which
 represents the keyboard.
+
 •
 We use the Stream Insertion Operator (<<) to write data to a stream.
+
 •
 We use the Stream Extraction operator (>>) to read data from a stream.
+
 •
 The Standard Template Library (STL) consists of several files each containing functions for
 different purposes.
+
 •
 To use functions in the Standard Library, we should include the corresponding files
 using the #include directive.
