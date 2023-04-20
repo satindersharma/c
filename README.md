@@ -453,23 +453,23 @@ Binary (base 2) 0, 1 11111111
 hexa (base 16) 0-9, A-F FF
 
 
-
+```cpp
 int number = 0b11111111;
 
 int number = 0xFF;
+```
 
-
-
+```cpp
 unsigned int number = -255; // unsigned cause problem
+```
 
-
-
+```cpp
 unsigned int number = 0;
 
 number--;
 
 cout <<number \\this will cause problem
-
+```
 
 
 ### Narrowing
@@ -479,57 +479,57 @@ cout <<number \\this will cause problem
 assigneing higher tpe values ot smaller type
 
 
-
+```cpp
 int number = 1'000'000;
 
 short another = number;
-
+```
 
 
 reverse of it(this is not an issue)
 
 
-
+```cpp
 short number 100;
 
 int another {number}
+```
 
-
-
+```cpp
 cout << sizeof(int); // size of bytes
+```
 
-
-
+```cpp
 cout << numeric_limits<int>::min() << endl // numeric_limits is a class
 
 << numeric_limits<int>::max() //this line will let you know the limit of the integer values
-
+```
 
 
 #### what happen if we store value larger than the limit
 
 
-
+```cpp
 int number = numeric_limits<int>::max();
 
 number++;
 
 cout << number; // this will result in smallest value, this is called overflow(the number was too big for it)
+```
 
-
-
+```cpp
 int number = numeric_limits<int>::min()
 
 number--;
 
 cout << number; // this will result in largest value, this is underflow(the nuber was too small for it)
+```
 
-
-
+```cpp
 bool isvalid = false;
 
 cout << boolalpha << isValid; // otherwise this wll return 0 on termnal
-
+```
 
 
 char for single
@@ -541,25 +541,25 @@ string for seq of character
 computer reperenst it asnumber is numeric
 
 
-
+```cpp
 char ch = 'a'; // use singel qoute for char
 
 cout << ch;
 
 cout << +ch; // this will print the nueric reperesentaion of charactor a
+```
 
-
-
+```cpp
 char ch = 98;
 
 cout << ch;
+```
 
-
-
+```cpp
 string name = "ajay sharma"; // for sequence of character
+```
 
-
-
+```cpp
 string name;
 
 cout << "Enter Your name";
@@ -567,13 +567,13 @@ cout << "Enter Your name";
 cin >> name;
 
 cout << "Hi " << name; // this will missout naythin after first whitespace
-
+```
 
 
 use
 
 
-
+```cpp
 string name;
 
 cout << "Enter Your name";
@@ -581,47 +581,47 @@ cout << "Enter Your name";
 getline(cin, name)
 
 cout << "Hi " << name; // this will show your name
-
+```
 
 
 to store list of integer
 
 
-
+```cpp
 int numbers[5]; to write an array with the 5 integer values
 
 cout << numbers; // this will print the hexadecimal address of the array
+```
 
-
-
+```cpp
 cout << numbers[0]; // this will print out 0
 
 cout << numbers[1]; // this will print out 0 // by default at all places it keep integer 0
+```
 
-
-
+```cpp
 int numbers[5];
 
 numbers[1] = 10;
 
 cout << numbers[1];
+```
 
-
-
+```cpp
 cout << numbers[5]; this will print the any number that garbage collector found at that time
+```
 
-
-
+```cpp
 int numbers[5] = {10,20}
 
 cout << numbers[0]; //
+```
 
-
-
+```cpp
 int numbers[] = {10, 20}; // to let the compiler decide how many values need
+```
 
-
-
+```cpp
 int x = 1;
 
 double y = 2.0;
@@ -631,11 +631,11 @@ int z = x + (int)y; // c style casting,but if conversion cannot be done wi won't
 int z = x + static_cast<int>(y);// this will show error on compile time if error on conversion(casting)
 
 cout << z;
+```
 
 
 
-
-
+```cpp
 int x = 10;
 
 int y = 3;
@@ -643,4 +643,4 @@ int y = 3;
 double z = x / y; this will return int, to solve this caste any one value
 
 double z = static_cast<double>(x) / y;
-
+```
