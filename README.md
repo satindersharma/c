@@ -324,10 +324,27 @@ int numbers[5];
 numbers[1] = 10;
 cout << numbers[1];
 
+cout << numbers[5]; this will print the any number that garbage collector found at that time
+     
+int numbers[5] = {10,20}
+cout << numbers[0]; //
+     
+     
+int numbers[] = {10, 20}; // to let the compiler decide how many values need
+     
+     
+     
+     
+int x = 1;
+double y = 2.0;
+int z = x + (int)y; // c style casting,but if conversion cannot be done wi won't know untill run time
+int z = x + static_cast<int>(y);// this will show error on compile time if error on conversion(casting)
+cout << z;
 
-
-
-
+int x = 10;
+int y = 3;
+double z  = x / y; this will return int, to solve this caste any one value
+double z  = static_cast<double>(x) / y;
 
 
 
