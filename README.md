@@ -976,3 +976,14 @@ void greet(string name)
 ```
 
 
+### organizing functions in file
+```cpp
+#include <iostream>
+using namespace std;
+void greet(string name);
+
+int main(){
+    greet(:ajay")
+    return 0;
+}
+
