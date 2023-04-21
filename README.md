@@ -230,36 +230,34 @@ endl to make a new line charactor
 
 
 
-Type Bytes Range
-
-short 2 -32768 to 32767
-
-int 4 -2BIllion to 2Billion
-
-long 4 same
-
-long long 8  
+| Type      | Bytes | Range                 |
+|-----------|-------|-----------------------|
+| short     | 2     | -32768 to 32767       |
+| int       | 4     | -2BIllion to 2Billion |
+| long      | 4     | same                  |
+| long long | 8     |                       |
 
 most usfull is short and int
 
 
-
-float 4 -3.4E38 to 3.4E38
-
-double 8 -1.7E308 to 1.7E308
-
-long double 8 -3.4E932 to 1.7E4832
-
+| Type        | Bytes | Range                |
+|-------------|-------|----------------------|
+| float       | 4     | -3.4E38 to 3.4E38    |
+| double      | 8     | -1.7E308 to 1.7E308  |
+| long double | 8     | -3.4E932 to 1.7E4832 |
 
 
 most used double (because float sometime result in lost of accuracy)
 
 
 
-bool 1 true/false
+| Type | Bytes | Range      |
+|------|-------|------------|
+| bool | 1     | true/false |
+| char | 1     |            |
 
-char 1
 
+char a = 'b';
 
 
 double price = 99.99;
