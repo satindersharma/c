@@ -880,7 +880,7 @@ int main(){
     cout << price;  //due to apprasent in function, thus this gonna change
     }
 ```
-the above is helpful if we have large amount of data, so copyp may decrrease the efficincy
+the above is helpful if we have large amount of data, so copy may decrrease the efficincy
 
 ```cpp
 void greet(string& name){
@@ -895,7 +895,84 @@ int main (){
     }
 ```
 
+```cpp
+void greet(string& name){
+    cout << "Hello " << name;
+    name = "abc"; //will change the name value in the main function also
+    }
+
+int main (){
+    string name = "aja";
+    greet(name);
+    cout << name;
+    return 0;
+    }
+```
+
+to prevent accidental change of refernce value use const
 
 
+```cpp
+void greet(xonst string& name){  // use const so there is no changes by any mistake
+    cout << "Hello " << name;
+    }
+
+int main (){
+    string name = "aja";
+    greet(name);
+    cout << name;
+    return 0;
+    }
+```
+
+### local and global variable
+
+
+```cpp
+int taxRate = 20; // global variable
+
+double calculateTax(int sales){
+    return sales * taxRate; // this is available in the function as it is in global scope
+}
+
+
+
+int main (){
+    // this is an local variable
+    int sales = 10'000;
+    double tax = calculateTax(sales);
+    cout << tax;
+    return 0;
+    }
+```
+
+function decalaration
+
+```cpp
+int main(){
+    greet("AJ"); // this will throw error as main doesnt know about function greet, in another words it should be define before main
+    return 0;
+ }
+ void greet(string name){
+    cout << "Hello " << name;
+    }
+```
+
+
+```cpp
+// function decaleration (function prototype)
+void greet(string name)
+
+
+ int main(){
+    greet("aBC");
+    return 0;
+ }
+ 
+ // function defination
+ void greet(string name){
+    cout << "Hello " << name;
+    }
+```
 
 
