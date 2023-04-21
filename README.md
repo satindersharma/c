@@ -888,7 +888,7 @@ int main(){
 ```
 
 ```cpp
-viod greet(string firstName, string lastName){
+void greet(string firstName, string lastName){
     cout << "hell" << firstName " " << lastName << endl;
     }
 
@@ -897,5 +897,124 @@ int main(){
     cout << "done";
 }
 ```
+
+
+parameter the names that define in the function
+arguments are the values that is applied to those parameters
+
+
+```cpp
+void greet(string firstName, string lastName){
+    cout << "hell" << firstName " " << lastName << endl;
+    }
+string full_name(string firstName, string lastName){
+    return  firstName + " " + lastName;
+    }
+
+int main(){
+    greet("ajay","sharma")
+    string name = fullname("ajay","Kumar")
+    cout << name;
+    cout << "done";
+}
+```
+
+```cpp
+int max(int first, int second){
+    if (first > second)
+        return first;
+    else
+        return second;
+}
+
+int max(int first, int second){
+    if (first > second)
+        return first;
+    return second;
+}
+
+int max(int first, int second){
+    return (first > second) ? first : second;
+}
+```
+
+function with default value(should be at the end)
+```cpp
+double calculateTax(double income, double taxRate = .2){
+    return income * taxRate;
+}
+```
+
+fucntion overloading
+```cpp
+// in overloading each function should have unique signature
+void greet(string name){  // this is valid
+    cout << "Hello " << name;
+    }
+/*
+*void greet(string name,string lastname){  // this is not valid, as this has the same signature as the next one
+*    cout << "Hello " << name;
+ *   }
+ 
+ */
+ 
+ 
+// signature = name of the function + (number and type of parameter)        here we have name greet and 2 parameter of string type   
+void greet(string title, string name){
+    cout << "Hello " << title << " " << name;
+    }
+    
+ int main(){
+    greet("ajay")
+    greet("ajay" , "sharam")
+}
+```
+
+
+passing arguments by value or reference(by default it is passed as value in c)
+
+```cpp
+void increaseNumber(double price){ // as the parameter have the block level scope
+    // price = price * 1.2;
+    price *= 1.2;
+    }
+    
+    
+int main(){
+    double price 100;
+    increaseNumber(price); // this will act like a copy of price is passed to the function
+    cout << price;  //thus this not gaonna change
+    }
+```
+
+
+```cpp
+void increaseNumber(double& price){ // now this will act as pass by reference
+    price *= 1.2;
+    }
+   
+int main(){
+    double price 100;
+    increaseNumber(price); 
+    cout << price;  //due to apprasent in function, thus this gonna change
+    }
+```
+the above is helpful if we have large amount of data, so copyp may decrrease the efficincy
+
+```cpp
+void greet(string& name){
+    cout << "Hello " << name;
+    }
+
+int main (){
+    string name = "aja";
+    greet(name);
+    cout << name;
+    return 0;
+    }
+```
+
+
+
 
 
