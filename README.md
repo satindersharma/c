@@ -364,6 +364,7 @@ int another {number}
 ```
 
 ```cpp
+
 cout << sizeof(int); // size of bytes
 ```
 
@@ -390,6 +391,9 @@ cout << number; // this will result in smallest value, this is called overflow(t
 ```
 
 ```cpp
+#include <limits>
+
+
 int number = numeric_limits<int>::min()
 
 number--;
@@ -432,6 +436,8 @@ string name = "ajay sharma"; // for sequence of character
 ```
 
 ```cpp
+#include <string>
+
 string name;
 
 cout << "Enter Your name";
