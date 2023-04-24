@@ -368,6 +368,8 @@ cout << sizeof(int); // size of bytes
 ```
 
 ```cpp
+#include <limits>
+
 cout << numeric_limits<int>::min() << endl // numeric_limits is a class
 
 << numeric_limits<int>::max() //this line will let you know the limit of the integer values
@@ -378,6 +380,8 @@ cout << numeric_limits<int>::min() << endl // numeric_limits is a class
 
 
 ```cpp
+#include <limits>
+
 int number = numeric_limits<int>::max();
 
 number++;
