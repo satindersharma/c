@@ -446,6 +446,8 @@ use
 
 
 ```cpp
+#include <string>
+
 string name;
 
 cout << "Enter Your name";
