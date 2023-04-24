@@ -987,15 +987,112 @@ void greet(string name)
     }
 ```
 
+---
 
 ### organizing functions in file
+
+#### `HelloWorld/main.cpp`
+
+here we are tring to define the greet function in another file
+
+this will be helpfull to make file size small, and we are also able to use it in another files or project
 ```cpp
 #include <iostream>
+
 using namespace std;
+
+// function decaleration (function prototype)
 void greet(string name);
 
 int main(){
-    greet(:ajay")
+
+    greet("ajay")
+    
     return 0;
 }
 
+// function defination
+void greet(string name){
+
+cout << "Hello " << name;
+
+}
+    
+    
+```
+
+create a new directory to work with
+
+eg
+#### `HelloWorld/utls`
+
+add 2 files in this directory
+1. the header file  // eg `greet.h` or `greet.hpp` both works but  `greet.hpp` is more common
+2. the implemientaion file // eg `greet.cpp`
+
+
+#### `HelloWorld/utls/greet.cpp`
+
+```cpp
+#include <iostream> // you have to include this at the top
+
+using namespace std;
+
+// function defination
+void greet(string name){
+
+cout << "Hello " << name;
+
+}
+```
+
+#### `HelloWorld/utls/greet.hpp`
+
+```cpp
+#include <string> // we could #include <iostream> but it is not neccessary here so only using #include <string> where the string class is defined
+
+
+// function decaleration (function prototype)
+void greet(std::string name);  //now as we included #include <string> change string to std::string
+
+```
+
+now in our main file becomes like this
+
+#### `HelloWorld/main.hpp`
+```cpp
+#include <iostream>
+#include "utils/greet.hpp"
+
+using namespace std;
+
+int main(){
+
+greet("AJ")
+
+return 0;
+
+}
+
+
+```
+the above file still cause error on build time
+
+
+if you include #include "utils/greet.hpp"in another (like we did in main.cpp) this will cause error, so wee need to tell to `only include this once`
+
+#### go to `HelloWorld/utls/greet.hpp` and use another derective ifndef
+
+```cpp
+#ifndef UTILS_GREET               // #ifndef the any constant(here we used UTILS_GREET)
+#define UTILS_GREET                //if not defined , define it UTILS_GREET (both spelling should be exactly the same)
+
+#include <string>
+
+void greet(std::string name);
+
+#endif
+```
+
+when the above lines run first it check for if not define, the run all the code inside(define it and all code) utils to we get to endif
+but when it runs again ,now the constant UTILS_GREET is defien so it will not run the code inside
