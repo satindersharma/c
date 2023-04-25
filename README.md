@@ -1202,4 +1202,4 @@ using std::cin;
 using std::cout, std::cin;
 ```
 
-
+[Advance](https://github.com/satindersharma/c/tree/main/advance)
