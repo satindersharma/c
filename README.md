@@ -2,13 +2,15 @@
 
 
 
-###### https://code.visualstudio.com/docs/languages/cpp
+##### https://code.visualstudio.com/docs/languages/cpp
 
 
 
 #### Terminal > Run Build Task command (`Ctrl+Shift+B`)
 
+#### `g++ -o main.exe main.cpp utils/greet.cpp`
 
+#### `g++ -o main.exe main.cpp utils/greet.cpp calcu/calculation.cpp`
 
 #### run by `.\helloworld`
 
