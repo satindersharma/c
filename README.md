@@ -1102,3 +1102,93 @@ but when it runs again ,now the constant UTILS_GREET is defien so it will not ru
 ### to build from multiple files
 
 ### `g++ -o main.exe main.cpp utils/greet.cpp`
+
+
+
+###  namespace
+
+#### `utils/greet.hpp`
+```cpp
+#ifndef UTILS_GREET               // #ifndef the any constant(here we used UTILS_GREET)
+#define UTILS_GREET                //if not defined , define it UTILS_GREET (both spelling should be exactly the same)
+
+#include <string>
+namespace messaging {
+
+    void greet(std::string name);
+}
+
+#endif
+```
+
+#### `utils/greet.cpp`
+```cpp
+#include <iostream>
+
+using namespace std;
+
+namespace messaging {
+    void greet(string name){
+        cout << "Hello " + name
+
+        }
+}
+```
+
+#### `main.cpp`
+
+```cpp
+#include <iostream>
+#include "utils/greet.hpp"
+
+using namespace std;
+
+int main(){
+    messaging::greet("AJ")
+    return 0;
+}
+
+```
+#### another version
+
+```cpp
+#include <iostream>
+#include "utils/greet.hpp"
+
+using namespace std;
+using namespace messaging;
+
+
+int main(){
+    greet("AJ")
+    greet("AJ")
+    greet("AJ")
+    greet("AJ")
+    return 0;
+}
+
+```
+
+#### another version
+sometiem we may need to import only specific function only form a namespace
+```cpp
+#include <iostream>
+#include "utils/greet.hpp"
+
+using namespace std;
+using messaging::greet;
+
+
+int main(){
+    greet("AJ")
+    greet("AJ")
+    greet("AJ")
+    greet("AJ")
+    return 0;
+}
+
+```
+
+
+
+
