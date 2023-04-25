@@ -1098,3 +1098,7 @@ void greet(std::string name);
 
 when the above lines run first it check for if not define, the run all the code inside(define it and all code) utils to we get to endif
 but when it runs again ,now the constant UTILS_GREET is defien so it will not run the code inside
+
+### to build from multiple files
+
+### `g++ -o main.exe main.cpp utils/greet.cpp`
