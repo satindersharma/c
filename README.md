@@ -1189,6 +1189,17 @@ int main(){
 
 ```
 
+#### if you only need cout, or any specific one
 
+```cpp
+using std::cout;
+```
+```cpp
+using std::cout;
+using std::cin;
+```
+```cpp
+using std::cout, std::cin;
+```
 
 
