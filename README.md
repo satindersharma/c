@@ -567,9 +567,13 @@ cout << boolalpha << !isEledgible; // not logical operator
 ```
 
 preority order
+
 () // higest prioritiy
+
 ! 
+
 &&
+
 || 
 
 
@@ -795,6 +799,7 @@ int main(){
 
 
 parameter the names that define in the function
+
 arguments are the values that is applied to those parameters
 
 
@@ -834,6 +839,7 @@ int max(int first, int second){
 ```
 
 function with default value(should be at the end)
+
 ```cpp
 double calculateTax(double income, double taxRate = .2){
     return income * taxRate;
@@ -894,6 +900,8 @@ int main(){
     cout << price;  //due to apprasent in function, thus this gonna change
     }
 ```
+
+
 the above is helpful if we have large amount of data, so copy may decrrease the efficincy
 
 ```cpp
