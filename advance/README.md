@@ -85,7 +85,7 @@ cout << boolalpha << areEqual << endl;
 
 ```
 
-
+### passing array to function
 ```cpp
 
 #include <iostream>
@@ -99,11 +99,73 @@ void printNumbers(int numbers[]){
       cout << number;
 }
 
-// even the size funtion will not work as it hase interger point er whicui is an memory address number, so function size to int
+// even the size funtion will not work as it hase interger point er which is an memory address number, so function size to int
 
 void printNumbers(int numbers[]){
-   for (int i = 0; i <size (numbers); i++)
+   for (int i = 0; i <size (numbers); i++) // as this size over here has nno kowlege about the size of array
       cout << numbers[i];
 
+// so we have to pass the size of the array in fuction 
+void printNumbers(int numbers[], int size){
+   for (int i = 0;i < size; i++)
+      cout numbers[i];
+      
+ }
+ 
+ ```
+ 
+ 
+```cpp
 
+#include <iostream>
+
+using namespace std;
+ void printNumbers(int numbers[], int size){
+   for (int i = 0; i < size; i++)
+      cout numbers[i];
+      
+ }
+ 
+ ```
+ 
+ 
+ #### size_t
+ 
+ if you have a 32 bit compiler the size of size_t is unsigned int otherwiise if you have a 64 bit compiler the size is unsigned long long
+ 
+ i.e 
+ 
+ size_t = unsigned int
+ size_t =  unsigned long long
+ 
+```cpp
+
+cout << sizeof(long long) << endl;
+cout << size(size_t) << endl;  // this will return size of 8 byte// here size_t is the type of size() function
+
+```
+
+#### unpacking array
+
+```cpp
+int values[3] = {10,20,30};
+
+// C++: structured binding
+// JavaScript: destructuring
+// Python: unpacking
+
+// one way to do that is 
+int x = values[0];
+int y = values[1];
+int z = values[2];
+
+// new way
+
+auto [x,y,z] = values;
+
+cout << x << ", " << y << ", " << z << endl;
+
+```
+
+#### searching array
 
