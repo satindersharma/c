@@ -302,3 +302,186 @@ for (int pass = 0; pass<size;pass++){
    
    }
  ```
+
+
+
+## pointers
+
+A special variable that hold the address of another variable in memory
+
+why to use pointer
+
+efficiently passing large objects(instead of copying them pass by the reference )
+dynamic memory allocation(help to reisize an arry dynamically at run time)
+enabling polymorphism
+
+
+
+```cpp
+int main(){
+int number = 10;
+cout << &number << endl; // to print the address of number
+
+int* ptr = &number; // this is the interger pointer ptr (remember the type should be always same)
+// int* ptr; /// again here it will point to nay variable address in the garbage, it will throw the error of memory address violation, so always intitalize a ptr
+
+// int *ptr = &number; this is also valid
+
+// The address-of operator
+// int* ptr  = nullptr; // a nullptr is a pointer that don't point to anything,
+// in older c++ we use
+// int* ptr = NULL or int ptr = 0, but now int* ptr  = nullptr;  is the prefered way
+cout << ptr;
+
+
+//how to access pointer value (by using * at front of the pointer)
+
+cout << *ptr; //t his will print out the value
+
+
+// we can also change the value to the target memeory location
+// inderection (de-reference) operator
+*ptr  = 20;
+
+cout << number << endl;
+
+
+return 0;
+}
+
+```
+
+
+```cpp
+
+int main(){
+
+int x = 10;
+int y = 20;
+int* ptr = &x;
+*ptr *= 2;
+ptr = &y;
+*ptr *= 3;
+
+return 0;
+
+}
+```
+#### contanct pointer
+```cpp
+
+int main(){
+
+   const  int x = 10;
+   // we can't have an interger pinter poit to contant integer. types hould be itdenticals
+   int* ptr = &x;
+   // so make it
+   const int* ptr = &x; /// in this senrio the target data is constance but pointer is not
+   
+   // so we cant do
+   *ptr = 20; //as it is same as x = 20, which is not allowed
+   
+   int y  = 30;
+   // this valid as our pointer is not constant
+   ptr = &y;
+   
+   
+   
+   
+return 0;
+
+}
+
+```
+
+here is  another examples where pointer is constant
+
+```cpp
+
+int main(){
+
+int x = 10;
+int* const ptr = &x; // now we have an connstant pointer
+
+// senerio where both data and pointer are constant
+
+const x = 10;
+const int* const ptr = &x;// we have a const pointer pointing to constant int
+
+return 0;
+}
+```
+
+#### passing pointers to function
+
+// by default it is passed by value(no by reference), so 
+```cpp
+
+void increasePrice(double price){ // here price parametere here is like local variable in the function
+price *= 1.2;
+
+}
+
+int main(){
+double price = 100;
+increasePrice(price);
+cout << price;
+}
+return 0; 
+
+```
+### how to make it reference (the more mordern way)
+```cpp
+
+void increasePrice(double& price){ // now here it is passed as reference
+   price *= 1.2;
+
+}
+
+int main(){
+double price = 100;
+increasePrice(price);
+cout << price;
+}
+return 0; 
+
+```
+
+#### how to make it reference (another but old way)
+```cpp
+
+void increasePrice(double* price){ // defien as poineter
+   // use indirection operator
+   *price *= 1.2;
+
+}
+
+int main(){
+double price = 100;
+increasePrice(&price); //pass address of price
+cout << price;
+}
+return 0; 
+
+```
+
+
+#### swap two variables with pointer
+
+```cpp
+
+void swap(int* first, int* second){
+int temp = *first;
+*first = *second;
+*second = temp;
+}
+
+int main(){
+   int x = 10;
+   int y = 20;
+   swap(&x, &y);
+   
+   cout << x << endl << y << endl;
+
+   return 0;
+}
