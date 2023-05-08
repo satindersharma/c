@@ -168,4 +168,137 @@ cout << x << ", " << y << ", " << z << endl;
 ```
 
 #### searching array
+###### linear search element
 
+best is O(1) worst is O(n) we need iterate over entire array to find it
+
+this is called linear search as the cost of the algorithum is is direct propostion to the size of the array, as our array grow the cost grow
+
+many other algorathe are
+binary search
+ternary search
+jump search
+exponential search
+
+```cpp
+
+int find(int numbers[], int size, int target){
+
+   for (int i = 0; i< size ; i++)
+      if(numbers[i] == target)
+         return i;
+         
+  return -1;
+  }
+  
+  
+  
+  int main(){
+  int numbers[] = {10,20,30}
+  
+  cout << find(numbers,size(numbers)) << endl;
+  
+  returnn 0;
+
+
+}
+
+```
+
+
+#### sorting array
+
+bubble sort
+Selection sort
+Insertion sort
+Merge sort
+Quick sort
+
+##### bubble sort
+
+compare two consicutive array element and swap the in asseinding order
+eg {8,2,4,1,3}
+it first iteration the above became(8,2 became 2,8 
+{2,8,4,1,3} // swap 8,2
+{2,4,8,1,3} // swap 8,4
+{2,4,1,8,3} // swap 8,1
+{2,4,1,3,8} // swap 8,3
+
+as the  largest item automaticly came(bubble up) at last, therefore it is called buble sort
+
+// after each pass the next largest item moves to correct possition
+{2,1,4,3,8} // swap 4,1
+{2,1,3,4,8} // swap 4,3
+
+
+// again on more pass
+
+{1,2,3,4,8} // swap 2,1
+
+now our arry is fully sorted
+
+```cpp
+
+void swap(int numbers[], int i, int j){
+   int temp = numbers[i];
+   numbers[i] = numbers[j]
+   numbers[j] = temp;
+   
+   }
+
+void sort(int numbers[], int size){
+
+for (int pass = 0; pass<size;pass++){
+
+   for (int i = 1;i < size; i++)
+
+      if (numbers[i] < numbers[i - 1]){
+         // int temp = numbers[i];
+         // numbers[i] = numbers[i-1];
+         // numbers[i-1] = temp;
+         swap(numbers,i, i-1)
+         }
+
+   }
+   
+  int main (){
+   int numbers[] = {30,10,20}
+   
+   sort(numbers,size(numbers))
+   
+   for (int number:numbers):
+      cout << number << endl;
+ return 0;
+ }
+ 
+ ```
+ 
+ ### mulit demientional array
+ 
+ ```cpp
+ int main(){
+ // 2X3 matrix
+ //  int matrix[2][3] = {
+ //              {1,2,4},
+ //              {23,34,12}
+               }
+ int rows =  2;
+ int columns = 3;
+ 
+    int matrix[row][columns] = {
+               {1,2,4},
+               {23,34,12}
+               }
+ 
+ // the outer loop is gnna use for the row and inner fo the coumns
+ 
+ 
+ for  (int row = 0; row < rows; row++){
+   for (int col = 0; col < columns; col++)
+      cout << matrix[row][col
+   }
+   round 0;
+   
+   
+   }
+ ```
