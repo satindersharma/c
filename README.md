@@ -748,6 +748,18 @@ do{  // braces are requied here
      // do will run atleast one time
 }while()
 
+first the do block will execute
+then it check for condition in while , 
+if condition true, it again enter into do block, 
+if condition false then the while block will execute
+
+
+do execute at start and run again untill while is true
+when while codition is false, the while block will execute
+
+
+
+
 ```cpp
 do{
 cout << "Enter a number "
@@ -765,6 +777,20 @@ cout << "Enter a number "
 cin >> number;
 } while (number < 1 || number > 5) // the number is not accsibe here, as in cpp vairable is on ly accible in the scope of the block in wich it declare
 
+```
+
+```cpp
+    int i = 1;
+
+    do { // do will execute al least one time
+        cout << "i = " << i << endl;
+        cout << "do block" << endl;
+        i++;
+    } while (i < 5);
+    {
+        cout << "i = " << i << endl;
+        cout << "While block " << endl;
+    }
 ```
 
 break & continue
