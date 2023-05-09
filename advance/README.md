@@ -560,5 +560,39 @@ while (ptr >= numbers) //
 
 #### dynamic memory allocation
 
+there is case we have alocated a high memory whereas the array has only one value,.
+so there is way you can intialize with a given size, but also can change dynamiclly
+
+by default the memory is clieaned up on block end, but in case of heap programmer is responseible for the cleanup,
+otherwise this memry is never gona realse and eventually gonna crash. we say our program is having a memory leak, meaning it constatly ocnsuming more and more memory
+
+so we dealocate the memeory using delete operator
+
+```cpp
+// int numbers[1000];
+
+// by this sytanx variable is diclared in a part of memery called Heap(free store)
+int* numbers = new int[10]; // this return an integer pointer
+int* num = new int;
+delete[] numbers;// here we dealing with array so delete[] followed by the name of the pointer
+delete num;
+// also it is not mendetory but we reset these pointer to nullptr
+
+numbers = nullptr;
+num = nullptr;
+```
+
+#### dynamically resizing an array;
+```cpp
+
+int* numbers = new int[5]
+
+while (true){
+cout << "Number: ";
+cin >> 
+```
+
+
+
 
 
