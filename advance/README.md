@@ -582,15 +582,12 @@ numbers = nullptr;
 num = nullptr;
 ```
 
-#### dynamically resizing an array;
+#### smart pointers
+real life program has 1000s of pointer so it is hard to track and delete is realy dificult, hats way in mordern c++ we have the concept of smart pointer which free use from delting the poineter
 ```cpp
 
-int* numbers = new int[5]
 
-while (true){
-cout << "Number: ";
-cin >> 
-```
+
 
 
 
