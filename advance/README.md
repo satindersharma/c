@@ -485,3 +485,15 @@ int main(){
 
    return 0;
 }
+```
+
+### relationship btw array and pointer
+
+```cpp
+
+int main(){
+
+int numbers[] = {10,20,30}
+}
+```
+
