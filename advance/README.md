@@ -490,10 +490,75 @@ int main(){
 ### relationship btw array and pointer
 
 ```cpp
+int numbers[] = {10,20,30}
+
+// as cout print the address of the 1st elemt of the array we can use indirection to print the value of first item in array
+cout << numbers;// address of first elemtn of the array
+cout << *numbers
+
+int* ptr = numbers;
+cout << ptr; // address
+cout << *ptr; // value of the first elemtn in  the array
+cout << ptr[1]; // value of the seconnd element in the array
+```
+
+### the array passing to function
+
+```cpp
+
+void printNumbers(int numbers[]){
+   numbers[0] = 0;
+}
+
 
 int main(){
+int numbers[] = {10, 20, 30}
+printNumbers(numbers); // c++ compiler always passes array pointer to the funciton(this is more efficient then copying array and passing to the function)
+cout << numbers[0] << endl; // this number is changed
 
-int numbers[] = {10,20,30}
 }
 ```
+
+### pointer arthemics
+
+below assum that the pointer address is 100(actully it is hexa decimal, but for sipllicity we are takeing decimal), so when we do ptr++ it will become 104,
+because on most of the machine int take 4 bytes so the first element in the array takes from 100 - 103 (4 byte space)
+so on ptr++ it gona increate like sizeof(data)  size of data type
+```cpp
+int main(){
+int numbers[] = {10, 20, 30}
+int* ptr = numbers;
+// 100
+ptr++ // it became 104, so it is pointing to the start of second element
+// ptr-- // this will again start to point to 1st element
+cout << *ptr;
+
+
+
+// also  on add opereator
+
+cout << *(ptr +1); // next value, it is same as bellow
+cout << ptr[1]; //under the hood this is rewirte as above, it is same as below, better approach wiht pointer
+cout << numbers[1];
+}
+
+```
+
+ptr != nullptr
+
+
+{10,20,30} create a pointer and print in reverse
+```cpp
+int numbers[] = {10,20.30};
+int* ptr = &numbers[size(numbers) - 1];//get the address of the last element in the array
+// while (ptr >= &numbers[0]) // &numbers[0] is same as numbers (as by default it return the address of first element of the array, so
+while (ptr >= numbers) // 
+   cout << *ptr << endl; // dereference tht pointer,(i.e print the value)
+   ptr--; //move the pointer to previous element
+
+```
+
+#### dynamic memory allocation
+
+
 
