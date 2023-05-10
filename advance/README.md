@@ -583,8 +583,72 @@ num = nullptr;
 ```
 
 #### smart pointers
-real life program has 1000s of pointer so it is hard to track and delete is realy dificult, hats way in mordern c++ we have the concept of smart pointer which free use from delting the poineter
+real life program has 1000s of pointer so it is hard to track and delete is realy dificult, hats way in mordern c++ we have the concept of smart pointer which free use from delting the pointer
+
+
+#### Types of smart pointers
+Unique pointers
+Shared pointers
+
+
+
+#### Unique pointers
+
+means only one pointer is ownig a memory address
+
+first include another fie from the statdanrd library called memery
 ```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+
+// class used for unique pointer
+unique_ptr 
+// class used for unique pointer, use angle brackets <> to specifiy the type of pointer we are gona create, 
+unique_ptr<int>  x(new int); // unique_ptr<int>  is the type, x vaiable name, (new int)  new operator to create integer pointer
+// here x(new int) essentianly we are create int poinerter here ((new int) and we are passing that to x which is called an object
+// so x is an instance of unique_ptr (unique pointer) class
+
+// now we can work with it
+cout << x; // will see a memery address
+
+// we can derefernce it
+*x = 10;
+// and print it
+
+cout << *x; //but remeber we cannot perform arthmetic operation on unique pointer
+
+// x++ or x-- will not work
+
+```
+##### there is a simpler way to create a unique pointer
+
+using make_unique<>
+
+```cpp
+#include <memory>
+
+// make_unique<int> // to create interger pointer , this return an instance of unique_ptr class , so we can write it as
+unique_ptr<int> y = make_unique<int>;
+// as above we can see th that it gona return unique pointer of int , then we can eaily use auto keyword, so we are letting the compiler infer the type of 
+auto y = make_unique<int>;
+
+```
+we are not limited to only int , we can create any datatype , for eg
+
+```cpp
+#include <memory>
+auto numners = make_unique<int[]>(10); // int array wit intitial size of 10
+numbers[0] = 10;
+cout << numbers[0];
+```
+
+##### shared pointer
+
+
 
 
 
