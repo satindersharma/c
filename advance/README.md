@@ -641,16 +641,27 @@ we are not limited to only int , we can create any datatype , for eg
 
 ```cpp
 #include <memory>
-auto numners = make_unique<int[]>(10); // int array wit intitial size of 10
+auto numners = make_unique<int[]>(10); // int array with initial size of 10
 numbers[0] = 10;
 cout << numbers[0];
 ```
 
 ##### shared pointer
+```cpp
+#include <memory>
+using namespace std;
+int main(){
+
+shared_ptr<int> x(new int); // or
+shared_ptr<int> x = make_shared<int>(); // or
+auto x = make_shared<int>();
 
 
 
+return 0;
+}
 
+```
 
 
 
