@@ -797,6 +797,46 @@ name.clear();// which is same like name = "";
 name.replace(0,2,"MH"); // go to position 0 and replace next two character with MH
 
 ```
-                                        
-                                        
-                                        
+##### search in string
+
+```cpp
+string name = "Sharma";
+name.find('a'); //return the position of first occrance, here it return 2. find is case sensitive
+name.find('a',4); // return the position but start from 4th postion, here it return 5. find is case sensitive
+name.find('A'); // this will return a very large value, wihic is equilent to -1
+size_t t = -1;// by default size_t hold unsigned value, but as here -1 is passed this will underflow
+cout << t << endl; // therfore it will print the larges poisble value it can hold
+
+so you can see that t and name.find('A') return the same value
+
+if (name.find('A') == -1)
+   cout << "dosn't exist";
+   
+   
+name.rfind('a'); //work like find , but start the search from the end
+name.find_first_of(" ,:")// first occarance of any of these characters
+name.find_last_of(" ,:")// last occrance of any of these chracters
+```
+##### extracting sub-string
+```cpp
+string name = "Satinder shrama"
+name.substr(); //  this will retuen a brand new copy of string
+name.substr(5); // goto name and extract string from position 5
+name.substr(5,3); // goto name and extract string from position 5 and extract 3 str
+
+
+//example , to get first and last name
+string firstName = name.substr(0,name.find(' '));
+string lastName = name.subtr(
+
+```
+```cpp
+string name = "Neil Nitin Mukesh"
+// auto index = name.find(' '); // here it is better to use auto , bcz it is returning size_t
+auto index = name.rfind(' '); // for middle name 
+string firstName = name.substr(0,index);
+// string lastName = name.substr(index); // this will return with whiespace at front
+string lastName = name.substr(index+1); // to avoid whatspace at front
+cout << firstName << lastName;
+```
+##### working with characters
