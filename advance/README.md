@@ -672,7 +672,7 @@ return 0;
 
 #### strings
 
-##### old way (before string type is created)
+##### old way(c string) (before string type is created)
 ```cpp
 // here we can store only 4 characters as the last character alway should be Null terminator (\0)
 char name[5] = {'h','e','l','l','\0'} \\ using \0 we re[esent end of string
@@ -737,12 +737,54 @@ so
 ```cpp
 strcmp(name,lastName); // if name comes first than lastName(alphabetically) then -1, if name comes second after lastName(alphabetically) then it will return 1, if equal then 0
 ```
+
+#### new string (c++ string) new style string
    
+this new string usues the internal char array. but it hase many more imprve ment and easy to work with.
+```cpp
+
+   #include <iostream>
    
+   using namespace std;
+   int main(){
+   string name = "hello";
+   cout name[0]; // first element of string object
    
+   // we can call length method for string length
+   cout name.lenght(); // length of string
+   
+   // we can append to it
+   name + " oo"
+   // or
+   name = name + " oo" // or name += " oo"
+   
+   // copy string
+   string another = name;
+   
+   // compair
+   
+   name == another; // or name < another
+                                        
+  // startswith
+   name.starts_with('h') // return true false
+  // endswith
+   name.ends_with('o') // return true false
+                                        
+   // empty
+   name.empty() // return true if no characters in name
+                                        
+   // front
+   name.front() // return first character                              
+   // back
+   name.back() // return last character   
+                                        
+   
+   return 0;
+   }
+```
+##### modifying string
+                                        
+```cpp
+string name = "Sharma";
 
-
-
-
-
-
+```
