@@ -686,11 +686,12 @@ name[0] = 'H'
 cout << name[0];
 ```
 
-we have bunch of function to work with c string , all this are defiend in the file called <cstring>
- here are some of them
+we have bunch of function to work with c string , all this are defiend in the file called cstring
+here are some of them
+   
+###### strlen
    
    
- strlen
 ```cpp
 #include <iostream>
 #include <cstring>
@@ -702,7 +703,9 @@ int main(){
 return 0;
 }
 ```
-string concat
+
+   
+###### string concat
 ```cpp
 #include <cstring>
    
@@ -725,7 +728,7 @@ the above work, but there is a prablem as name[5] allowed only 5 element, but by
 also we cannot set lastName to name like
 lastName = name;
 
-copy string
+##### copy string
 ```cpp
 strcpy(name,lastName);// here name will we updated with the valueof lastName
 cout << name;
@@ -787,4 +790,13 @@ this new string usues the internal char array. but it hase many more imprve ment
 ```cpp
 string name = "Sharma";
 
+name.append('as'); 
+name.insert(0,'df');
+name.erase(0,2);   // go to 0 position and delete next 2 characters
+name.clear();// which is same like name = "";
+name.replace(0,2,"MH"); // go to position 0 and replace next two character with MH
+
 ```
+                                        
+                                        
+                                        
