@@ -655,13 +655,82 @@ int main(){
 shared_ptr<int> x(new int); // or
 shared_ptr<int> x = make_shared<int>(); // or
 auto x = make_shared<int>();
-
+*x = 10;
+shared_ptr<int>y(x); // y is sharing the memory address of x
+if (x == y)
+   cout << "Equal" //
+cout << *x;
+cout << *y;
 
 
 return 0;
 }
 
 ```
+
+
+
+#### strings
+
+##### old way (before string type is created)
+```cpp
+// here we can store only 4 characters as the last character alway should be Null terminator (\0)
+char name[5] = {'h','e','l','l','\0'} \\ using \0 we re[esent end of string
+// there is a simpler way
+// string literal
+char name[5] = "Josh" \\ no need to add \0 as it is automaticlly added
+
+we can change idividual char like
+name[0] = 'H'
+
+cout << name[0];
+```
+
+we have bunch of function to work with c string , all this are defiend in the file called <cstring>
+ here are some of them
+   
+   
+ strlen
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
+   
+int main(){
+   char name[5] = "Hosh";
+   cout << strlen(name); // to print the size of the string
+return 0;
+}
+```
+string concat
+```cpp
+#include <cstring>
+   
+int main(){
+   
+   char name[5] = "Hosh";
+   char lastName[] = "Sharma";
+   // we can't do
+   name + lastName // this will cause error in older c++
+   
+   strcat(name, lastName)// contact tow strings
+   return 0;
+   }
+   
+```
+strcat gona take two argumetn and gona add second argument and add to first argument
+the above work, but there is a prablem as name[5] allowed only 5 element, but by compineing we have gone beyond hte boint of this array, so we have written data somewhere in the memory which not spossed to. som ight face some bug in big program. simple solution is make the array bigger like name[50]
+   
+   
+also we cannot set lastName to name like
+lastName = name;
+
+copy string
+```cpp
+strcpy(name,lastName);
+cout << name;
+```
+
 
 
 
