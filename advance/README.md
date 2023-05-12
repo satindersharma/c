@@ -727,10 +727,19 @@ lastName = name;
 
 copy string
 ```cpp
-strcpy(name,lastName);
+strcpy(name,lastName);// here name will we updated with the valueof lastName
 cout << name;
 ```
-
+comopare string
+as we can't do
+   name == lastName
+so
+```cpp
+strcmp(name,lastName); // if name comes first than lastName(alphabetically) then -1, if name comes second after lastName(alphabetically) then it will return 1, if equal then 0
+```
+   
+   
+   
 
 
 
