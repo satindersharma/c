@@ -840,3 +840,32 @@ string lastName = name.substr(index+1); // to avoid whatspace at front
 cout << firstName << lastName;
 ```
 ##### working with characters
+```cpp
+string name = "Neil Nitin Mukesh"
+cout << islower(name[0])
+cout << isupper(name[0])
+cout << isalpha(name[0]) // if a-z A-Z
+cout << isdigit(name[0])
+cout << isspace(name[0])
+cout << toupper('a') // will retunr 65
+cout << (char) toupper('a') //c style casting
+```
+
+
+####### customer number shout have 2 alphabet charcters followed by 4 digits
+```cpp
+book isValid(string customerNumber){
+if (customerNumber.length() != 6)
+   return false;
+for( int i = 0; i <2; i ++)
+   if(!isalpha(customerNumber[i])
+      reutrn false;
+for( int i = 2; i < customerNumeer; i ++)
+   if(!!isdigit(customerNumber)
+      reutrn false;
+return true;
+``` 
+
+
+
+      
