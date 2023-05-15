@@ -871,9 +871,31 @@ string customerNumber = "AB234"
 cout << isValid(customerNumber);
 }
 
-
 ``` 
 
+##### string conversion
 
+```cpp
+// const price = "19.90";
+double price = stod("19.90"); // you will get output even on 19.x00 19.34x34 19x9.09
+cout << price;
+
+string str = to_string(19);
+cout << str;
+```
+##### escape squence
+```cpp
+string str = "c:\my folder"; // this will not show \
+string str = "c:\\my folder"; // this will show \
+char = '\''; \\ to print single quatation mark
+string str = "'hello'";
+string str = "\n\thello";
+```
+##### raw strings
+```cpp
+string str = R"("c:folder\folderb\file.txt")"; // this will show exct the same
+```
+
+#### Structures an denumerators
 
       
