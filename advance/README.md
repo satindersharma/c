@@ -864,6 +864,14 @@ for( int i = 2; i < customerNumeer; i ++)
    if(!!isdigit(customerNumber)
       reutrn false;
 return true;
+}
+
+int main(){
+string customerNumber = "AB234"
+cout << isValid(customerNumber);
+}
+
+
 ``` 
 
 
