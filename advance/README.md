@@ -897,5 +897,120 @@ string str = R"("c:folder\folderb\file.txt")"; // this will show exct the same
 ```
 
 #### Structures an denumerators
+abstract data type ADT
+abstraction: an general model of something
+```cpp
 
-      
+// use PascalCase naming convention  
+struct Movie{ // this is not alocatin any memory, it just simply telling tht computer that a Movie straction consist these variables
+   string title;
+   int releaseYear;
+}
+int main(){
+Movie movie; // when this line executed the compiler is gona allocate space for these two vairables
+movie.title; // to access the member of the structure
+movie.title = "The";
+movie.releaseYear = "1987";
+cout << movie; // error , as stream insertion operator is implemented only for builtin type of c++;
+cout << movie.title; //
+
+return 0;
+}
+```
+##### initializing structure
+
+```cpp
+struct Movie{ 
+   string title;
+   int releaseYear;
+}
+int main(){
+Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
+Movie movie = {"The", 243}; // also valid
+}
+
+```
+also initialize in structure
+```cpp
+struct Movie{  // we can also give it a default value 
+   string title; // string is by default is like this  string title = "";
+   int releaseYear = 0;
+   // bool isPopular=false; // no need to set false as by default bool naribale is defined as false
+   bool isPopular; // so this is enough
+}
+int main(){
+Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
+Movie movie = {"The", 243}; // also valid
+}
+```
+##### unpacking structures
+to store the structure memeber value in a different valiable
+on way is 
+```cpp
+
+Movie movie = {"Harry Porter",1929,true}
+string title = movie.title
+int releaseYear = movie.releaseYear;
+bool isPopular = movie.isPopular;
+
+```
+
+but there is a better way, c++ structure binding
+```cpp
+Movie movie = {"Harry Porter",1929,true}
+// c++ structure binding
+// js destructring
+// python unpacking
+
+auto [title, releaseYear, isPopular] {movie};
+
+cout title;
+```
+##### array of  structures
+
+we can create an array of structure
+in thet
+
+```cpp
+
+struct Movie {
+      string title;
+      int releaseYear = 0;
+      bool isPopular;
+};
+int main (){
+   int numbers[5]; //same like regular array we can create array of structre
+   Movie movies[5]; // Movie array
+return 0;
+}
+
+```
+
+in the statdard library we have a class called vector
+which implement a dynamic array
+that is the prefered way to store a list of object
+with this class we are not gonna allocate too much memeroy , not gonna waset too much memeroy,
+the vector class gonna take care of the all the complexity
+
+let's see how gonna use vector and loop over them
+
+```cpp
+#include <vector>
+
+int main(){
+vector<Movie> movies;
+Movie movie {"Terminator 1",1929}
+
+movies.push_back(movie); // the at the end of the object
+movies.push_back({"Terminator 2",1929}); // the at the end of the object
+cout << movies[0].title
+
+for(auto m:movies)
+   cout << m.title
+// much accuratly
+for(const auto& m:movies) // now instead of copying the 
+   cout << m.title
+return 0;
+}
+```
+
