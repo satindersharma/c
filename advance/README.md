@@ -1013,4 +1013,36 @@ for(const auto& m:movies) // now instead of copying the
 return 0;
 }
 ```
+##### nested structures
+```cpp
+#include <vector>
 
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+}
+int main(){
+vector<Movie> movies;
+Movie movie {"Terminator 1",1929} // here the 1929 will be assigned to Date.year automatically
+cout movie.realseDate.year; // this will print 1929
+
+return 0;
+}
+int main(){
+
+Date date {1992,2,1};
+Movie movie = {"temp",date};
+
+// or
+Movie movie = {"temp",{1992,2,1}}
+
+return 0;
+}
+```
+##### comparing structures
