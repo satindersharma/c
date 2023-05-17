@@ -1136,3 +1136,371 @@ return 0;
 
 ```
 ##### operator overloading
+each operator is essentially a function
+for example  ==  can be impelemented as operator== 
+```cpp
+// this not the accurate solution
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+   // here to implement == opererato change it to 
+   bool operator==(const Movie& movie){ // but here still it thow error because enen though thow we can't change like movie.title, but changes of title is possile
+            title = "a"; /// with current implemetentation we can change current structure elemnt values
+            return (title == movie.title && 
+         releaseDate.year == movie.releaseDate.year && 
+         releaseDate.month == movie.releaseDate.month && 
+         releaseDate.day ==  movie.releaseDate.day)
+   }
+}
+```
+so you should make this method constant
+```cpp
+// this not the accurate solution
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+   // here to implement == opererato change it to 
+   bool operator==(const Movie& movie) const{ // now we can't change , now it is a good solution
+            return (title == movie.title && 
+         releaseDate.year == movie.releaseDate.year && 
+         releaseDate.month == movie.releaseDate.month && 
+         releaseDate.day ==  movie.releaseDate.day)
+   }
+}
+
+int main(){
+
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+
+if (movie1 == movie2) // now we can compare
+   cout <<  "Equals";
+return 0;
+
+}
+
+```
+
+but still there is an another way
+
+
+```cpp
+// this not the accurate solution
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+
+}
+
+
+bool operator==(const Movie& first,const Movie& second) const{
+         return (first.title == second.title && 
+      first.releaseDate.year == second.releaseDate.year && 
+      first.releaseDate.month == second.releaseDate.month && 
+      first.releaseDate.day ==  second.releaseDate.day)
+}
+
+// 
+
+int main(){
+
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+
+if (movie1 == movie2) // now we can compare
+   cout <<  "Equals";
+return 0;
+
+}
+```
+
+why the above approache , because the some operators like << (stream insertion operators)  are required to implement outside the structure
+
+so having it outsideis a good approach
+
+
+```cpp
+// this not the accurate solution
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+
+}
+
+
+bool operator==(const Movie& first,const Movie& second) const{
+         return (first.title == second.title && 
+      first.releaseDate.year == second.releaseDate.year && 
+      first.releaseDate.month == second.releaseDate.month && 
+      first.releaseDate.day ==  second.releaseDate.day)
+}
+
+// overqrite <<. here ostream means output stream, ostream& means ostream reference
+ostream& operator<<(ostream& stream, const Movie& movie){
+   stream << movie.title;
+   return stream; // always return stream object, so that we can chain the stream insertion opeerator
+}
+
+int main(){
+
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+
+if (movie1 == movie2) // now we can compare
+   cout <<  "Equals";
+   
+ // now we can do like
+ cout << movie1;
+return 0;
+
+}
+```
+
+##### structures and functions
+we need the following function for next topic
+```cpp
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+
+}
+Movie getMovie(){
+return {"new",1998}
+}
+void showMovie(Movie& movie){
+cout << movie.title;
+}
+
+int main(){
+auto movie = getMovie();
+showMovie(movie)
+
+return 0;
+}
+```
+##### pointer to structure
+instead of  passign as reference pass as pointer like this
+```cpp
+
+void showMovie(Movie* movie){ // change to movie pointer
+cout << movie.title; // but you will get error on this as movie is just a memery address , so it has nothing like .titile
+}
+```
+to soleve this first we have to derefrence movie. but again this cause problem as the perriority is high for . so movie.title will execute first istead of *movie
+```cpp
+
+void showMovie(Movie* movie){ // change to movie pointer
+cout << *movie.title;// again this will not work due to priority order 
+}
+```
+so to solve this wrap this in the (), but you see the code look silghly more complex
+
+```cpp
+
+void showMovie(Movie* movie){ // change to movie pointer
+cout << (*movie).title;// now the *move runs first by the compiler
+}
+int main(){
+auto movie = getMovie();
+showMovie(&movie); //also herewe have to pass the address of the movie object
+
+return 0;
+}
+
+```
+
+we can replaceit with structure pointer operator ->
+```cpp
+
+void showMovie(Movie* movie){ // change to movie pointer
+cout << movie->title;// this gonna dereference the pointer and gona give the access to title 
+}
+int main(){
+auto movie = getMovie();
+showMovie(&movie); //also herewe have to pass the address of the movie object
+
+return 0;
+}
+
+```
+
+#### Enumerations
+
+```cpp
+enum Action { // enum automatically assign a value the to the element like 0 for List , 1 for Add and so on
+List,
+Add,
+Update,
+};
+// but we can assign a value explicitly
+enum Action { 
+List=1,
+Add=2,
+Update=3,
+};
+
+// if you do like below the Add , gona be 2 , Update gona be 3 and os on
+enum Action { // enum automatically assign a value the to the element like 2 for Add and so on
+List=1,
+Add,
+Update,
+};
+
+```
+just define one , other iwll be decided, and access usin :: list
+
+```cpp
+enum Action { 
+List=1,
+Add,
+Update,
+};
+
+
+int main(){
+int intput;
+cin >> input;
+
+if (input == Action::List){
+   cout << "execute List"
+   
+   
+return 0;
+}
+
+```
+##### strongly typed Enumerations
+
+we cannot define two enum with same elements like
+```cpp
+enum Action { 
+List=1,
+Add,
+Update,
+};
+
+
+enum Operation { 
+List=1,
+Add,
+Update,
+};
+
+```
+so in c++ 11 we have stroly typed Enum
+but we have to cast it in comparision as this dosn't eplicitly return int
+```cpp
+enum class Action { // we should alway use stronly typed enum to avoid name collision
+List=1,
+Add,
+Update,
+};
+
+
+enum class Operation { 
+List=1,
+Add,
+Update,
+};
+
+
+
+int main(){
+int intput;
+cin >> input;
+
+if (input == static_cast<int>(Action::List)){
+   cout << "execute List"
+   
+   
+return 0;
+}
+
+```
+
+#### stream
+
+
+stream  
+
+
+##### reading from stream
+all the cin has the buffer. buffer is like temprary storage memeroy
+so what the user enterfirst go to the buffer like
+
+```cpp
+   
+   // so what the user enterfirst go to the buffer like
+   // [10 20]
+int main(){
+cout << "First ";
+int first;
+cin >> first;/// if you enter here like 10 20, then what happen is that, so this gonna read all the cracter until hit space [10 , so it will extract 10 and convert it to int
+
+
+// now our buffer is gona look like this [ 20]
+
+cout << "Second ";
+int second;
+cin >> second; // but wehn we get to this line ,as we have leftover in buffer the program is not gona wait for the user to enter a value and get the 20 and stre it in second 
+cout << "You entered " << first << " and " << second;
+
+
+return 0;
+}
+```
+
+all the input stream has the method to clear the buffer
+
+
+```cpp
+   
+   // so what the user enterfirst go to the buffer like
+   // [10 20]
+int main(){
+cout << "First ";
+int first;
+cin >> first;
+cin.ignore(10,'\n') number of caractger to ignore , and the chracter we are looking for , which is when user press enter. so after 10 chareacter untill you find \n
+
+
+
+cout << "Second ";
+int second;
+cin >> second; 
+cout << "You entered " << first << " and " << second;
+
+
+return 0;
+}
+```
