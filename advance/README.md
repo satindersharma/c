@@ -1046,3 +1046,93 @@ return 0;
 }
 ```
 ##### comparing structures
+we have to compare each structre elemnet separatly , directyl == won't work
+```cpp
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+movie1 == movie2; // is not gonna work
+movie1.title == movie2.title // this will work for title compare
+// or
+if(movie1.title == movie2.title && 
+movie1.releaseDate.year == movie2.releaseDate.year && 
+movie1.releaseDate.month == movie2.releaseDate.month && 
+movie1.releaseDate.day == movie2.releaseDate.day
+)
+   cout << "Equal";
+
+```
+##### working with methods
+```cpp
+
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+   
+   bool equals(Movie movie){
+<!--          if (title == movie.title && 
+         releaseDate.year == movie.releaseDate.year && 
+         releaseDate.month == movie.releaseDate.month && 
+         releaseDate.day ==  movie.releaseDate.day)
+         return true;
+         else
+            return false; -->
+            return (title == movie.title && 
+         releaseDate.year == movie.releaseDate.year && 
+         releaseDate.month == movie.releaseDate.month && 
+         releaseDate.day ==  movie.releaseDate.day)
+   }
+}
+
+int main(){
+
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+
+// here again a bit problem the movie2 object is ge copied so to solve this
+if (movie1.equals(movie2))
+   cout <<  "Equals";
+return 0;
+
+}
+
+```
+
+```cpp
+
+struct Date{
+   short year = 1900;
+   short month = 1;
+   short day = 1;
+}
+struct Movie {
+   string title;
+   Date releaseDate;
+   bool isPopular;
+   // this is more accuratly called method, method is a function part of a structure or a class
+   bool equals(const Movie& movie){ // movie now this is passed as refenrence, and also the const will not let it be changed over here  which is better solution
+            return (title == movie.title && 
+         releaseDate.year == movie.releaseDate.year && 
+         releaseDate.month == movie.releaseDate.month && 
+         releaseDate.day ==  movie.releaseDate.day)
+   }
+}
+
+int main(){
+
+Movie movie1 = {"temp",{1992,2,1}}
+Movie movie2 = {"temp",{1992,2,1}}
+
+if (movie1.equals(movie2))
+   cout <<  "Equals";
+return 0;
+
+}
+
+```
+##### operator overloading
