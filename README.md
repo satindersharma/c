@@ -308,7 +308,7 @@ int number {} // this will initilize to value 0
 
 
 
-number system
+#### number system
 
 
 
@@ -566,7 +566,7 @@ bool isEledgible  = age > 18 || age < 65;   // c check from left to right, both 
 cout << boolalpha << !isEledgible; // not logical operator
 ```
 
-preority order
+#### preority order
 
 () // higest prioritiy
 
@@ -588,7 +588,7 @@ cout << boolalpha << result;
 ```
 
 
-if statements
+#### if statements
 
 
 ```cpp
@@ -640,7 +640,7 @@ else cout "else part";
 cout << "warm";
 ```
 
-nested if 
+#### nested if 
 
 ```cpp
 int temp = 70;
@@ -667,7 +667,7 @@ double commission = (sales > 10'000) ? .1 : .05;  condidition ? if value is true
 ```
 
 
-switch statement(to caire variablle with a set of values)
+#### switch statement(to caire variablle with a set of values)
 
 ```cpp
 cin >> input;
@@ -684,7 +684,7 @@ switch (input){
 
 ```
 
-loops
+### loops
 
 to repeat 1 or more example
 ```cpp
@@ -733,7 +733,7 @@ for (char ch:name) // we can loop over string also
 ```
 
 
-while loop
+### while loop
 
 ```cpp
 int i = 1;
@@ -743,18 +743,23 @@ while (i <= 5){
 }  
 ```
 
+### do while
 
 do{  // braces are requied here
      // do will run atleast one time
 }while()
 
 first the do block will execute
+
 then it check for condition in while , 
+
 if condition true, it again enter into do block, 
+
 if condition false then the while block will execute
 
 
 do execute at start and run again untill while is true
+
 when while codition is false, the while block will execute
 
 
@@ -793,12 +798,12 @@ cin >> number;
     }
 ```
 
-break & continue
+#### break & continue
 
-nested loop
+#### nested loop
 
  
-function
+### function
 
 if a function doesnot return a value then type void keyword
 ```cpp
@@ -872,7 +877,7 @@ double calculateTax(double income, double taxRate = .2){
 }
 ```
 
-fucntion overloading
+#### fucntion overloading
 ```cpp
 // in overloading each function should have unique signature
 void greet(string name){  // this is valid
@@ -994,7 +999,7 @@ int main (){
     }
 ```
 
-function decalaration
+#### function decalaration
 
 ```cpp
 int main(){
