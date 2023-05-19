@@ -135,8 +135,10 @@ using namespace std;
  
  i.e 
  
- size_t = unsigned int
- size_t =  unsigned long long
+ ##### size_t = unsigned int(on system 32)
+ 
+ ##### size_t =  unsigned long long(on system 64)
+ 
  
 ```cpp
 
