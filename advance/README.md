@@ -1512,3 +1512,8 @@ numeric_limits<streamsize>::max()
 cin.ignore(numeric_limits<streamsize>::max(),'\n')
 ```
 ##### handling input errors
+
+```cpp
+
+
+```
