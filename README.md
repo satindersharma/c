@@ -744,10 +744,11 @@ while (i <= 5){
 ```
 
 ### do while
-
+```cpp
 do{  // braces are requied here
      // do will run atleast one time
 }while()
+```
 
 first the do block will execute
 
@@ -756,6 +757,8 @@ then it check for condition in while ,
 if condition true, it again enter into do block, 
 
 if condition false then the while block will execute
+
+
 
 
 do execute at start and run again untill while is true
