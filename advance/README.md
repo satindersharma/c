@@ -1491,7 +1491,8 @@ int main(){
 cout << "First ";
 int first;
 cin >> first;
-cin.ignore(10,'\n') number of caractger to ignore , and the chracter we are looking for , which is when user press enter. so after 10 chareacter untill you find \n
+// ignore next 10 character until you find \n
+cin.ignore(10,'\n') number of character to ignore , and the chracter we are looking for , which is when user press enter. so after 10 chareacter untill you find \n
 
 
 
@@ -1504,3 +1505,10 @@ cout << "You entered " << first << " and " << second;
 return 0;
 }
 ```
+how to cler all the reain character in the buffer we should pass the largest value can represent using using the stream size
+
+```cpp
+numeric_limits<streamsize>::max()
+cin.ignore(numeric_limits<streamsize>::max(),'\n')
+```
+##### handling input errors
