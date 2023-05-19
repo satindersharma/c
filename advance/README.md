@@ -523,9 +523,9 @@ cout << numbers[0] << endl; // this number is changed
 
 ### pointer arthemics
 
-below assum that the pointer address is 100(actully it is hexa decimal, but for sipllicity we are takeing decimal), so when we do ptr++ it will become 104,
+below assume that the pointer address is 100(actually it is hexa decimal, but for simpllicity we are taking decimal), so when we do ptr++ it will become 104,
 because on most of the machine int take 4 bytes so the first element in the array takes from 100 - 103 (4 byte space)
-so on ptr++ it gona increate like sizeof(data)  size of data type
+so on ptr++ it gonna increase like sizeof(data)  size of data type
 ```cpp
 int main(){
 int numbers[] = {10, 20, 30}
@@ -589,8 +589,8 @@ real life program has 1000s of pointer so it is hard to track and delete is real
 
 
 #### Types of smart pointers
-Unique pointers
-Shared pointers
+###### Unique pointers
+###### Shared pointers
 
 
 
