@@ -922,6 +922,10 @@ int main(){
     }
 ```
 
+### reference parameter
+
+double& price will act like reference parameter.
+
 
 ```cpp
 void increaseNumber(double& price){ // now this will act as pass by reference
@@ -930,7 +934,7 @@ void increaseNumber(double& price){ // now this will act as pass by reference
    
 int main(){
     double price 100;
-    increaseNumber(price); 
+    increaseNumber(price); // the above price will be passed to the function, not the copy
     cout << price;  //due to apprasent in function, thus this gonna change
     }
 ```
@@ -969,7 +973,7 @@ to prevent accidental change of refernce value use const
 
 
 ```cpp
-void greet(xonst string& name){  // use const so there is no changes by any mistake
+void greet(const string& name){  // use const so there is no changes by any mistake
     cout << "Hello " << name;
     }
 
