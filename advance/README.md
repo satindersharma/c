@@ -369,7 +369,7 @@ return 0;
 
 }
 ```
-#### contanct pointer
+#### constant pointer
 ```cpp
 
 int main(){
