@@ -526,7 +526,9 @@ cout << numbers[0] << endl; // this number is changed
 below assume that the pointer address is 100(actually it is hexa decimal, but for simpllicity we are taking decimal), so when we do ptr++ it will become 104,
 because on most of the machine int take 4 bytes so the first element in the array takes from 100 - 103 (4 byte space)
 so on ptr++ it gonna increase like sizeof(data)  size of data type
+
 ```cpp
+
 int main(){
 int numbers[] = {10, 20, 30}
 int* ptr = numbers;
@@ -549,7 +551,7 @@ cout << numbers[1];
 ptr != nullptr
 
 
-{10,20,30} create a pointer and print in reverse
+###### {10,20,30} create a pointer and print in reverse
 ```cpp
 int numbers[] = {10,20.30};
 int* ptr = &numbers[size(numbers) - 1];//get the address of the last element in the array
