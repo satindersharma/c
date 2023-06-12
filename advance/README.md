@@ -633,7 +633,7 @@ cout << *x; //but remeber we cannot perform arthmetic operation on unique pointe
 ```
 ##### there is a simpler way to create a unique pointer
 
-using make_unique<>
+using `make_unique<>`
 
 ```cpp
 #include <memory>
@@ -676,7 +676,6 @@ return 0;
 ```
 
 ---
-
 #### strings
 
 
