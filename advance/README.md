@@ -589,6 +589,7 @@ real life program has 1000s of pointer so it is hard to track and delete is real
 
 
 #### Types of smart pointers
+
 ###### Unique pointers
 ###### Shared pointers
 
@@ -634,16 +635,16 @@ using make_unique<>
 #include <memory>
 
 // make_unique<int> // to create interger pointer , this return an instance of unique_ptr class , so we can write it as
-unique_ptr<int> y = make_unique<int>;
+unique_ptr<int> y = make_unique<int>();
 // as above we can see th that it gona return unique pointer of int , then we can eaily use auto keyword, so we are letting the compiler infer the type of 
-auto y = make_unique<int>;
+auto y = make_unique<int>();
 
 ```
 we are not limited to only int , we can create any datatype , for eg
 
 ```cpp
 #include <memory>
-auto numners = make_unique<int[]>(10); // int array with initial size of 10
+auto numners = make_unique<int[]>(10); // int array with initial size of 10 , not working
 numbers[0] = 10;
 cout << numbers[0];
 ```
@@ -670,9 +671,10 @@ return 0;
 
 ```
 
-
+---
 
 #### strings
+
 
 ##### old way(c string) (before string type is created)
 ```cpp
