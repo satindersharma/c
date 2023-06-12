@@ -551,7 +551,7 @@ cout << numbers[1];
 ptr != nullptr
 
 
-###### {10,20,30} create a pointer and print in reverse
+###### `{10,20,30}` create a pointer and print in reverse
 ```cpp
 int numbers[] = {10,20.30};
 int* ptr = &numbers[size(numbers) - 1];//get the address of the last element in the array
