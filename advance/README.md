@@ -14,16 +14,16 @@ event-driven
 
 
 
-object
+##### object
 A Software entity that has attributes(properties) and fucntions (methods).
 
 
 
-class 
+##### class 
 a blueprint or recipe for creating objects.
 
 
 
-encapsulation
+##### encapsulation
 combining  the data and  functions that operate on the data into onoe unit
 
