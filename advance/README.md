@@ -4,8 +4,11 @@
 programming paradigms
 
 procedural
+
 functional
+
 object-oriented
+
 event-driven
 
 
