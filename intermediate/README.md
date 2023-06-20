@@ -1549,8 +1549,14 @@ numeric_limits<streamsize>::max()
 cin.ignore(numeric_limits<streamsize>::max(),'\n')
 ```
 ##### handling input errors
-
+if user enter invalid value then cin goes in to fail state
+we can handel that iwht cin.fail()
 ```cpp
 
-
+int main(){
+cout << "First: ";
+int first;
+cin >> first;
+if(cin.fail()){
+cout << "enter a valid number bhaya"
 ```
