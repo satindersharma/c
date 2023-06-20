@@ -905,7 +905,7 @@ string str = R"("c:folder\folderb\file.txt")"; // this will show exct the same
 
 ### Structures and Enumerations
 ---
-##### defining structure
+#### defining structure
 
 in structure we can define custom datatypes
 
@@ -944,7 +944,7 @@ return 0;
 
 
 ```
-##### initializing structure
+#### initializing structure
 
 ```cpp
 struct Movie{ 
@@ -970,7 +970,7 @@ Movie movie = {"The", 243}; // you can initialze like this, also asigning operat
 Movie movie {"The", 243}; // also valid
 }
 ```
-##### unpacking structures
+#### unpacking structures
 to store the structure memeber value in a different valiable
 on way is 
 ```cpp
@@ -993,7 +993,7 @@ auto [title, releaseYear, isPopular] {movie};
 
 cout title;
 ```
-##### array of  structures
+#### array of  structures
 
 we can create an array of structure
 in thet
@@ -1043,7 +1043,7 @@ for(const auto& m:movies) // now instead of copying the vecor we are using refer
 return 0;
 }
 ```
-##### nested structures
+#### nested structures
 ```cpp
 #include <vector>
 
@@ -1078,7 +1078,7 @@ return 0;
 }
 ```
 
-##### comparing structures
+#### comparing structures
 we have to compare each structre elemnet separatly , directyl == won't work
 ```cpp
 Movie movie1 = {"temp",{1992,2,1}}
@@ -1096,7 +1096,7 @@ movie1.releaseDate.day == movie2.releaseDate.day
 ```
 
 
-##### working with methods
+#### working with methods
 ```cpp
 
 struct Date{
@@ -1170,7 +1170,7 @@ return 0;
 }
 
 ```
-##### operator overloading
+#### operator overloading
 each operator is essentially a function
 for example  ==  can be impelemented as operator== 
 ```cpp
@@ -1315,7 +1315,7 @@ return 0;
 }
 ```
 
-##### structures and functions
+#### Structures and functions
 we need the following function for next topic
 ```cpp
 struct Date{
@@ -1343,7 +1343,7 @@ showMovie(movie)
 return 0;
 }
 ```
-##### pointer to structure
+#### pointer to structure
 instead of  passign as reference pass as pointer like this
 ```cpp
 
@@ -1389,7 +1389,7 @@ return 0;
 
 ```
 
-#### Enumerations
+### Enumerations
 
 ```cpp
 enum Action { // enum automatically assign a value the to the element like 0 for List , 1 for Add and so on
@@ -1434,7 +1434,7 @@ return 0;
 }
 
 ```
-##### strongly typed Enumerations
+#### strongly typed Enumerations
 
 we cannot define two enum with same elements like
 ```cpp
