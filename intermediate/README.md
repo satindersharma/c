@@ -903,9 +903,27 @@ string str = "\n\thello";
 string str = R"("c:folder\folderb\file.txt")"; // this will show exct the same
 ```
 
-#### Structures an denumerators
+### Structures and Enumerations
+---
+##### defining structure
+
+in structure we can define custom datatypes
+
+we call this abstract data type or ADT
+
+another common term is abstraction (which means a general model of something)
+
+
 abstract data type ADT
 abstraction: an general model of something
+
+without structure 
+
+```cpp
+string title;
+int realseYear;
+```
+with structure
 ```cpp
 
 // use PascalCase naming convention  
@@ -914,15 +932,17 @@ struct Movie{ // this is not alocatin any memory, it just simply telling tht com
    int releaseYear;
 }
 int main(){
-Movie movie; // when this line executed the compiler is gona allocate space for these two vairables
+Movie movie; // when this line executed the compiler is gona allocate space for these two vairables. this a movie object
 movie.title; // to access the member of the structure
 movie.title = "The";
-movie.releaseYear = "1987";
+movie.releaseYear = 1987;
 cout << movie; // error , as stream insertion operator is implemented only for builtin type of c++;
-cout << movie.title; //
+cout << movie.title; // this will work
 
 return 0;
 }
+
+
 ```
 ##### initializing structure
 
@@ -933,7 +953,7 @@ struct Movie{
 }
 int main(){
 Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
-Movie movie = {"The", 243}; // also valid
+Movie movie {"The", 243}; // also valid. remember order is mendatory
 }
 
 ```
@@ -941,13 +961,13 @@ also initialize in structure
 ```cpp
 struct Movie{  // we can also give it a default value 
    string title; // string is by default is like this  string title = "";
-   int releaseYear = 0;
+   int releaseYear = 0; // if not inittialized we will get the garbage value. so it is food practice to intialize
    // bool isPopular=false; // no need to set false as by default bool naribale is defined as false
    bool isPopular; // so this is enough
 }
 int main(){
 Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
-Movie movie = {"The", 243}; // also valid
+Movie movie {"The", 243}; // also valid
 }
 ```
 ##### unpacking structures
@@ -965,7 +985,7 @@ bool isPopular = movie.isPopular;
 but there is a better way, c++ structure binding
 ```cpp
 Movie movie = {"Harry Porter",1929,true}
-// c++ structure binding
+// c++ structured binding
 // js destructring
 // python unpacking
 
@@ -1005,17 +1025,20 @@ let's see how gonna use vector and loop over them
 #include <vector>
 
 int main(){
-vector<Movie> movies;
+vector<Movie> movies;   vector<Type of object we gona use> variable_name
 Movie movie {"Terminator 1",1929}
 
 movies.push_back(movie); // the at the end of the object
-movies.push_back({"Terminator 2",1929}); // the at the end of the object
-cout << movies[0].title
+movies.push_back({"Terminator 2",1929}); // or can directly pass at the end of the object
+cout << movies[0].title //access first object
 
+   // we can aslo loop over
 for(auto m:movies)
-   cout << m.title
+   cout << m.title << endl;
+
+      
 // much accuratly
-for(const auto& m:movies) // now instead of copying the 
+for(const auto& m:movies) // now instead of copying the vecor we are using reference variable
    cout << m.title
 return 0;
 }
@@ -1041,6 +1064,8 @@ cout movie.realseDate.year; // this will print 1929
 
 return 0;
 }
+```
+```cpp
 int main(){
 
 Date date {1992,2,1};
@@ -1052,6 +1077,7 @@ Movie movie = {"temp",{1992,2,1}}
 return 0;
 }
 ```
+
 ##### comparing structures
 we have to compare each structre elemnet separatly , directyl == won't work
 ```cpp
@@ -1068,6 +1094,8 @@ movie1.releaseDate.day == movie2.releaseDate.day
    cout << "Equal";
 
 ```
+
+
 ##### working with methods
 ```cpp
 
@@ -1455,7 +1483,7 @@ return 0;
 
 ```
 
-#### stream
+### stream
 
 
 stream  
