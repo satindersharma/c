@@ -1110,13 +1110,15 @@ struct Movie {
    bool isPopular;
    
    bool equals(Movie movie){
-<!--          if (title == movie.title && 
+/*        if (title == movie.title && 
          releaseDate.year == movie.releaseDate.year && 
          releaseDate.month == movie.releaseDate.month && 
          releaseDate.day ==  movie.releaseDate.day)
          return true;
          else
-            return false; -->
+            return false; 
+      this is a poor way to write , there is a simpler way i.e just siply return
+      */
             return (title == movie.title && 
          releaseDate.year == movie.releaseDate.year && 
          releaseDate.month == movie.releaseDate.month && 
