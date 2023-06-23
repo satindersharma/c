@@ -930,7 +930,7 @@ with structure
 struct Movie{ // this is not alocatin any memory, it just simply telling tht computer that a Movie straction consist these variables
    string title;
    int releaseYear;
-}
+};
 int main(){
 Movie movie; // when this line executed the compiler is gona allocate space for these two vairables. this a movie object
 movie.title; // to access the member of the structure
@@ -950,7 +950,7 @@ return 0;
 struct Movie{ 
    string title;
    int releaseYear;
-}
+};
 int main(){
 Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
 Movie movie {"The", 243}; // also valid. remember order is mendatory
@@ -964,7 +964,7 @@ struct Movie{  // we can also give it a default value
    int releaseYear = 0; // if not inittialized we will get the garbage value. so it is food practice to intialize
    // bool isPopular=false; // no need to set false as by default bool naribale is defined as false
    bool isPopular; // so this is enough
-}
+};
 int main(){
 Movie movie = {"The", 243}; // you can initialze like this, also asigning operator is option means
 Movie movie {"The", 243}; // also valid
@@ -1051,12 +1051,12 @@ struct Date{
    short year = 1900;
    short month = 1;
    short day = 1;
-}
+};
 struct Movie {
    string title;
    Date releaseDate;
    bool isPopular;
-}
+};
 int main(){
 vector<Movie> movies;
 Movie movie {"Terminator 1",1929} // here the 1929 will be assigned to Date.year automatically
@@ -1103,7 +1103,7 @@ struct Date{
    short year = 1900;
    short month = 1;
    short day = 1;
-}
+};
 struct Movie {
    string title;
    Date releaseDate;
@@ -1124,7 +1124,7 @@ struct Movie {
          releaseDate.month == movie.releaseDate.month && 
          releaseDate.day ==  movie.releaseDate.day)
    }
-}
+};
 
 int main(){
 
@@ -1146,7 +1146,7 @@ struct Date{
    short year = 1900;
    short month = 1;
    short day = 1;
-}
+};
 struct Movie {
    string title;
    Date releaseDate;
@@ -1158,7 +1158,7 @@ struct Movie {
          releaseDate.month == movie.releaseDate.month && 
          releaseDate.day ==  movie.releaseDate.day)
    }
-}
+};
 
 int main(){
 
@@ -1181,7 +1181,7 @@ struct Date{
    short year = 1900;
    short month = 1;
    short day = 1;
-}
+};
 struct Movie {
    string title;
    Date releaseDate;
@@ -1194,7 +1194,7 @@ struct Movie {
          releaseDate.month == movie.releaseDate.month && 
          releaseDate.day ==  movie.releaseDate.day)
    }
-}
+};
 ```
 so you should make this method constant
 ```cpp
@@ -1549,7 +1549,7 @@ numeric_limits<streamsize>::max()
 cin.ignore(numeric_limits<streamsize>::max(),'\n')
 ```
 ##### handling input errors
-if user enter invalid value then cin goes in to fail state
+if user enter invalid value then stream goes in to fail state, we can detect tht using cin.fail()
 we can handel that iwht cin.fail()
 ```cpp
 
@@ -1558,5 +1558,51 @@ cout << "First: ";
 int first;
 cin >> first;
 if(cin.fail()){
-cout << "enter a valid number bhaya"
+cout << "enter a valid number bhaya";
+cin.ignore(numeric_limits<streamsize>::max(),'\n')
 ```
+
+we can handle this with an infinie loop and wait for user to enter valid value
+```cpp
+
+int main(){
+   int first;
+while (true){
+   cout << "First: ";
+
+   cin >> first;
+   if(cin.fail()){ // even after failt there is value in the buffer 
+   cout << "enter a valid number bhaya";
+      cin.clear();// put the stream in good state
+      cin.ignore(numeric_limits<streamsize>::max(),'\n') // adn clear the buffer
+   }
+   else break;
+   
+
+}
+```
+
+we can handle this with an infinie loop and wait for user to enter valid value with a function
+```cpp
+
+int getNumber(const string& prompt){
+   int number;
+   while (true){
+      cout << "First: ";
+   
+      cin >> first;
+      if(cin.fail()){ // even after fail there is value in the buffer 
+         cout << "enter a valid number bhaya";
+         cin.clear();// put the stream in good state
+         cin.ignore(numeric_limits<streamsize>::max(),'\n') // adn clear the buffer
+      }
+      else break;
+      
+   
+   }
+}
+int main(){
+   int first;
+
+```
+
