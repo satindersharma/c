@@ -1840,6 +1840,7 @@ as in this machine each integer store 4 bytes of memory. so for 3 integer has th
 
 ##### reading binary files
 
+
 ```cpp
 #include <iostream>
 #include <fstream>
@@ -1848,8 +1849,132 @@ using namespace std;
 
 int main(){
       int numbers[3];
-      ifstream file("numbers.dat", ios::binary)
+      ifstream file("numbers.dat", ios::binary);
+      if(file.is_open()){
+         file.read(reinterpret_cast<char*>(&numbers), sizeof(numbers));
+         // loop over numbers to see them
+         cout << numbers << endl;
+         file.close();
+      }
       return 0;
 }
 ```
+here whiout knowing the numbers of file line
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+      ifstream file("numbers.dat", ios::binary);
+      if(file.is_open()){
+         int number
+         file.read(reinterpret_cast<char*>(&number), sizeof(number));
+         // loop over numbers to see them
+         cout << number << endl; // thiswill print the first
+         file.close();
+      }
+      return 0;
+}
+```
+
+put in a loop
+```cpp
+int main(){
+      ifstream file("numbers.dat", ios::binary);
+      if(file.is_open()){
+         int number
+         while(file.read(reinterpret_cast<char*>(&number), sizeof(number)))
+            cout << number << endl;
+         file.close();
+      }
+      return 0;
+}
+```
+
+working with file streams
+
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+      fstream file("numbers.txt", ios::in | ios::out); // opening file for both writing and reading. if not fiel then created otherwise content is overwriten
+      // but if you want to append then
+      fstream file("numbers.txt", ios::in | ios::out | int::app);
+      // also to open in binary mode
+      fstream file("numbers.txt", ios::in | ios::out | int::app  | int::binary);
+      if(file.is_open()){
+         // do whatever with file
+         file.close();
+      }
+      return 0;
+}
+```
+
+
+string stream
+
+string stream classes
+
+istringstream(for reading a string stream)
+ostringstream(for writing a string stream)
+stringstream(for reading and writing a string stream)
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+      double number = 12.34;
+      string str = to_string(number);
+   cout << str;// this will print 12.340000 , but if you wat to realy control this then you have to use string stream
+      return 0;
+}
+```
+
+this will give full control over how we get the number to the string
+```cpp
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+int main(){
+      double number = 12.34;
+   stringstream stream;
+   stream << fixed << setprecision(2) << number; //fixed noation to see decimal points, 
+   string str = stream.str(); // to getting the underline string
+   cout << str;// this will print 12.34
+      return 0;
+}
+```
+
+parsing string
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+int main(){
+   string str = "10 20";
+   stringstream stream; // of istringstream stream;
+   stream.str(str); // to getting the underline string
+   int first;
+   stream >> first;// it will get hte value until find a whie space 
+
+   int second;
+   stream >> second;
+   cout << first + second;
+      return 0;
+}
+```
+
+
 
