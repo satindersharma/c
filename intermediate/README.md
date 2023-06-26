@@ -1556,7 +1556,7 @@ we can handel that iwht cin.fail()
 int main(){
 cout << "First: ";
 int first;
-cin >> first;
+cin >> first; // ausme we enter a 20 here
 if(cin.fail()){
 cout << "enter a valid number bhaya";
 cin.ignore(numeric_limits<streamsize>::max(),'\n')
@@ -1570,11 +1570,11 @@ int main(){
 while (true){
    cout << "First: ";
 
-   cin >> first;
-   if(cin.fail()){ // even after failt there is value in the buffer 
+   cin >> first; // asume we enter a 20 here
+   if(cin.fail()){ // even after fail there is value in the buffer , due to [a 20]
    cout << "enter a valid number bhaya";
-      cin.clear();// put the stream in good state
-      cin.ignore(numeric_limits<streamsize>::max(),'\n') // adn clear the buffer
+      cin.clear();// clear the fail state, means put the stream in good state
+      cin.ignore(numeric_limits<streamsize>::max(),'\n') // and clear the buffer // the [a 20]
    }
    else break;
    
@@ -1600,9 +1600,256 @@ int getNumber(const string& prompt){
       
    
    }
+   return number
 }
 int main(){
-   int first;
+   int first = getNumber("First: ");
+   int second = getNumber("Second: ");
+   cout << "You entered " << first << " and " << second;
+   return 0;
+}
+```
+all stream classes same the interface. 
+#### FILE STREAM CLASSES:
+=========================
 
+ifstream (input file stream) . we can use to read data from a file
+ofstream (output file stream). we can use to write date from a file
+fstream () combine the above tow classes functionality. means we can use it for read and write data to a file
+
+##### write to a text file;
+
+```cpp
+#include <iostream>
+#include <fstream> // this include both ifstream and ofstream
+#include <iomanip> // io manipulator
+using namespace std;
+int main(){
+   ofstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      file << "Hello World" << endl;// this will work , but if want more manipulation we can use it wit <iomanip>, like following
+      file << setw(20) << "Hello" << setw(20) << "World"  << endl; // setw is allocate 20 character for each word, so that they every like each column
+      file.close(); //always call close so the operating system resources to work with file get released, if won't do so, the fiel may not be acceable to other programs
+   }
+   return 0;
+}
+```
+##### write a csv
+
+diffrence between \n and endl, is that endl aways flushes the buffer, but if we use \n buffer gonna flush only once
+
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+   ofstream file;
+   file.open("data.csv");
+   if (file.is_open()){
+      file << "id,title,year\n"
+           << "1,Terminator 1,1984\n"
+           << "2,Terminator 2,1991\n";
+      file.close();
+   }
+   return 0;
+}
+```
+
+
+##### read from a text file;
+
+```cpp
+#include <iostream>
+#include <fstream> // this include both ifstream and ofstream
+#include <iomanip> // io manipulator
+using namespace std;
+int main(){
+   ifstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      string str;
+      file >> str; // it will aisgn until it find a diliminator, like \n white space tab
+      cout << str; 
+      file.close(); 
+   }
+   return 0;
+}
+```
+
+so to get all use getline
+
+```cpp
+#include <iostream>
+#include <fstream> // this include both ifstream and ofstream
+#include <iomanip> // io manipulator
+using namespace std;
+int main(){
+   ifstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      string str;
+      getline(file, str); // it read all the character until it find \n
+      cout << str; 
+      file.close(); 
+   }
+   return 0;
+}
+```
+
+we have file.eof() . this return true if we are at end of file
+
+
+```cpp
+int main(){
+   ifstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      string str;
+      getline(file, str); // it read all the character until it find \n
+      while(!file.eof()){
+      getline(file, str); // this will get each line
+      cout << str << endl;
+      }
+      file.close(); 
+   }
+   return 0;
+}
+```
+
+
+get and save in Movie structure
+getine has third parameter which is deleminator
+the below code will fail
+```cpp
+
+struct Movie{
+   int id;
+   string title;
+   int year;
+}
+
+
+int main(){
+   ifstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      string str;
+      getline(file, str); // it read all the character until it find \n
+      while(!file.eof()){ // run untill it is end of file
+      getline(file, str,','); // getline(file, str,'\n') is by default
+      Movie movie;
+      movie.id = stoi(str);
+      cout << str << endl;
+
+      getline(file,str,',');
+      movie.title = str;
+
+      getline(file, str); // as we have \n not , 
+      movie.year = stoi(str);
+      }
+      file.close(); 
+   }
+   return 0;
+}
+```
+
+the file has a empty line at the end so to handle it write like this
+
+```cpp
+
+struct Movie{
+   int id;
+   string title;
+   int year;
+}
+
+
+int main(){
+   ifstream file;
+   file.open("data.txt"); // if file doesn't exist it gonna created, otherwise its data gonna overwritten
+   if (file.is_open()){
+      string str;
+      getline(file, str); // it read all the character until it find \n
+      while(!file.eof()){ // run untill it is end of file
+      getline(file, str,','); // getline(file, str,'\n') is by default
+      if(str.empty()) continue;
+      Movie movie;
+      movie.id = stoi(str);
+      cout << str << endl;
+
+      getline(file,str,',');
+      movie.title = str;
+
+      getline(file, str); // as we have \n not , 
+      movie.year = stoi(str);
+      }
+      file.close(); 
+   }
+   return 0;
+}
+```
+
+we can also store data in binary(images, audio files, pdf), it not human readable , because data store in them are exaclty like stored in memory
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+   int numbers[] = {1'000'000, 2'000'000, 3'000'000};
+   ofstream file("numbers.txt");
+   if (file.is_open()){
+      for (auto number:numbers)
+         file << number << endl;
+      file.close();
+}
+```
+
+if you check its size `ls -lh numbers.txt` it will have 24 bytes
+```
+1000000  // 7 character + one \n which makes to 8 bytes so in total 24 bytes
+2000000
+3000000
+```
+
+now we are goning to store it in binary to compare sizes
+file.write() // requuire two parameter 1. character pointer, 2. no of bytes we want to read from the memory and write to the disk 
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+   int numbers[] = {1'000'000, 2'000'000, 3'000'000};
+   ofstream file("numbers.dat", ios::binary); // bin or dat and the mode of the file
+   if (file.is_open()){
+      file.write(reinterpret_cast<char*>(&numbers), sizeof(numbers));
+      file.close();
+      return 0;
+}
+```
+
+if you check its size `ls -lh numbers.*` it will have 24 bytes for normal but 12 bytes for bin file
+
+as in this machine each integer store 4 bytes of memory. so for 3 integer has the size of 12 bytes
+
+##### reading binary files
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+      int numbers[3];
+      ifstream file("numbers.dat", ios::binary)
+      return 0;
+}
 ```
 
