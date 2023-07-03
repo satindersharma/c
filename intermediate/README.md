@@ -1545,6 +1545,8 @@ return 0;
 how to cler all the reain character in the buffer we should pass the largest value can represent using using the stream size
 
 ```cpp
+#include <limits>
+
 numeric_limits<streamsize>::max()
 cin.ignore(numeric_limits<streamsize>::max(),'\n')
 ```
@@ -1552,6 +1554,7 @@ cin.ignore(numeric_limits<streamsize>::max(),'\n')
 if user enter invalid value then stream goes in to fail state, we can detect tht using cin.fail()
 we can handel that iwht cin.fail()
 ```cpp
+#include <limits>
 
 int main(){
 cout << "First: ";
