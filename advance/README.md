@@ -1,7 +1,7 @@
 ## Advance
 
 
-programming paradigms
+programming paradigms(diffrent way oof building a software)
 
 procedural
 
@@ -32,6 +32,11 @@ combining  the data and  functions that operate on the data into onoe unit
 
 #### Define a class
 add a source file
+
+create two files (we need two fiel one source file wiht cpp extention and header file with h or hpp extenstion)
+assume we are creaate ing class rectangle
+the header file represet the interface of a class
+
 
 
 
