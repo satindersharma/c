@@ -1617,7 +1617,11 @@ all stream classes same the interface.
 =========================
 
 ifstream (input file stream) . we can use to read data from a file
+
+
 ofstream (output file stream). we can use to write date from a file
+
+
 fstream () combine the above tow classes functionality. means we can use it for read and write data to a file
 
 ##### write to a text file;
@@ -1926,7 +1930,11 @@ string stream
 string stream classes
 
 istringstream(for reading a string stream)
+
+
 ostringstream(for writing a string stream)
+
+
 stringstream(for reading and writing a string stream)
 
 ```cpp
