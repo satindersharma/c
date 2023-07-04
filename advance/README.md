@@ -37,10 +37,215 @@ create two files (we need two fiel one source file wiht cpp extention and header
 assume we are creaate ing class rectangle
 the header file represet the interface of a class
 
+### Creating a class
+
+`Rectangle.h`
+
+```cpp
+
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+#pragma once
+
+class Rectangle
+{
+
+};
+
+#endif
+```
+this header file represent the interface of the reactangle class 
+we have to include the header file in the main file
+
+```cpp
+ #pragma once is now non-standard
+```
+
+```cpp
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+```
+this is the header gaurd. it is saying that if this constant RECTANGLE_H is not define(ifndef RECTANGLE_H) then(define RECTANGLE_H) define it 
+```cpp
+#endif
+```
+this tells that it is the end of the define
+
+this help to prevent this file to bieng included multiple times in the complilation process
+
+defination leaves in header .h file, implementation leaves in cpp .cpp file
+
+
+### `Rectangle.h`
+
+```cpp
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+class Rectangle
+{
+int width;
+int height;
+void draw();
+int getArea(); 
+
+};
+
+#endif
+```
+
+
+### `Rectangle.cpp`
 
 
 
+```cpp
+#include "Rectangle.h"
+#include <iostream>
 
+using namespace std;
+
+
+void Rectangle::draw(){
+    cout << "Drawing a rectangle";
+    // in htis functio we have access of all the member of the Rectangle class
+    // like
+    // getArea()
+    // width, height
+    cout << width << endl << height << endl;
+
+}
+
+int Rectangle::getArea(){
+
+    return width*height;
+}
+```
+
+### why multple file
+
+`Reactangle.h` if we made changes to this file then this file and any file that is dependent on this file has to be recompiled
+
+`Rectangle.cpp` if we made changes to this file then only this file has to be recomiled and then it it likend with other complied file. so the other file is not going to be recomplied.
+
+this is the reason we need to seperate the implementation class from its interface
+
+
+### Create a rectangle Object
+
+### `main.cpp`
+ 
+```cpp
+
+#include "Rectangle.h"
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    Rectangle rectangle1;
+    rectangle1.width = 10;// we cannot access it outside the calss as ti is private member
+    // this is the main deiffrence fro the strucrtures
+
+
+    // to make them public
+    return 0;
+}
+```
+
+to make them public  go to `Rectangle.cpp`
+
+```cpp
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+
+class Rectangle
+{
+public:
+  int width;
+  int height;
+  void draw();
+  int getArea(); 
+
+};
+
+#endif
+```
+
+# to build from multiple files
+# `g++ -o main.exe main.cpp ./Rectangle.cpp`
+
+or you can in clue header in compilation
+## `g++ -o main.exe main.cpp ./Rectangle.cpp ./Rectangle.h`
+
+## `main.cpp`
+
+```cpp
+
+#include "Rectangle.h"
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    Rectangle rectangle1;
+    rectangle1.width = 10;// we cannot access it outside the calss as ti is private member
+    // this is the main deiffrence fro the strucrtures
+
+
+    // to make them public go to Rectangle.cpp
+
+    rectangle1.height = 20;
+
+    cout<< rectangle1.getArea() ;
+    return 0;
+}
+
+```
+
+
+
+### Data Hiding / Access Modifier
+
+A class Should hide its internal data form the outside code and provide functions for accessing the data.
+
+how can we hide inter data of the objcet. (by using access modifier)(public and private and protected keywords are the access modifier)
+
+we are going to declare 
+```cpp
+
+int width;
+int height;
+
+```
+
+as private
+
+order is not mendetary , even we can have mulitpl private and public section (but not recomemnded)
+
+### `Rectangle.h`
+```cpp
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+class Rectangle
+{
+public:
+
+    void draw();
+    int getArea(); 
+private:
+    int width;
+    int height;
+
+};
+
+#endif
+```
+
+this will 
 
 
 
