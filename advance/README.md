@@ -332,7 +332,32 @@ int main(){
 ```
 now you get the exception
 
+same way heigth
+```cpp
+
+int Rectangle::getHeight() {
+    return height;
+}
+
+void Rectangle::setHeight(int height) {
+    if(height<0)
+        throw invalid_argument("height");
+    // some prefer this form also
+    Rectangle::height = height;
+    // but for consisitency we will use the below notation
+    this->height = height;
+}
+
+```
+
 this is the benifits of defining getter and setter
+
+#### new example
+
+### `Alt + x` type TextBox
+
+
+
 
 
 
