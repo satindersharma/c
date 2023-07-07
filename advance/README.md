@@ -330,6 +330,10 @@ int main(){
 }
 
 ```
+now you get the exception
+
+this is the benifits of defining getter and setter
+
 
 
 
