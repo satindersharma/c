@@ -245,8 +245,91 @@ private:
 #endif
 ```
 
-this will 
 
+### this is an error
+
+### `main.cpp`
+
+```cpp
+rectangle1.width = -1
+
+```
+the above will cause error as the width should be a positive number
+
+to tackle this is, we need to use Getter and setter to better manage this
+
+### 7. Getter and Setters
+get the value and set the vale
+```cpp
+
+// as we make the data private
+private:
+    int width;
+    int height;
+
+// now we need the function for accing that data
+// one to get thevalue and other to set the value
+```
+
+### `Rectangle.h`
+```cpp
+class Rectangle
+{
+public:
+
+    void draw();
+    int getArea(); 
+private:
+    int width;
+    int height;
+
+};
+
+#endif
+```
+
+#### `Rectangle.cpp`
+
+```cpp
+int Rectangle::getWidth() {
+    return width
+}
+
+void Rectangle::setWidth(int width) {
+    if(width < 0)
+        throw invalid_argument("width") 
+    // set the width , but look it is not appropeiate
+    width=width
+    // some developer use this approach, prefix member valiable of the classes with m_
+    m_width=width
+    // some developer use this approach, some change the name of parameter with like theWidth
+    width = theWidth
+    // but we can use the this pointer, this point to the current object,this is pointer and *this is current object
+    (*this).width = width
+
+}
+```
+
+now we acnnto use the following in the main.cpp
+### `main.cpp`
+```cpp
+    rectangle1.width = -1
+```
+### `main.cpp`
+```cpp
+    rectangle1.width = -1
+```
+
+now change the above with the following to test if it goint to give error on negative number
+### `main.cpp`
+```cpp
+int main(){
+    Rectangle rectangle1;
+    rectangle1.setWidth(-1);
+    return 0;
+}
+
+```
 
 
 
