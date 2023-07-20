@@ -352,9 +352,78 @@ void Rectangle::setHeight(int height) {
 
 this is the benifits of defining getter and setter
 
-#### new example
 
-### `Alt + x` type TextBox
+
+#### 8. Constructor
+constructor don't have a return time , not even void and there name is same as the class name
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+
+class Rectangle{
+
+    public:
+        Rectangle(int width, int height){
+            cout << "callling constructor";
+            setWidth(width);
+            setHeight(height);
+        }
+
+
+        int getWidth(){
+            return width;
+        }
+
+        void setWidth(int width){
+
+            if (width<=0){
+                throw invalid_argument("Invalid Width argument is passed");
+            }
+            this->width = width;
+        }
+
+        int getHeight(){
+            return height;
+        }
+
+        void setHeight(int height){
+
+            if (height<=0){
+                throw invalid_argument("Invalid height argument is passed");
+            }
+            this->height = height;
+        }
+
+        int getArea(){
+            return width*height;
+        }
+        
+    private:
+        int width;
+        int height;
+
+};
+
+int main(){
+
+    Rectangle rec1(10,20); // call this way or
+    Rectangle rec2{10,20}; // call this way or for the most part bothe expression has thesame result, 
+
+    cout << "Width " << rec1.getWidth() << endl;
+    cout << "Height " << rec1.getHeight() << endl;
+    cout << "Area " << rec1.getArea() << endl;
+
+    return 0;
+}
+```
+
+we also have a diffrent and more efficent way to intiatalze 
+
+
+if we initialize in the body athen compiler gona create he meember varaible first and then gona 
 
 
 
