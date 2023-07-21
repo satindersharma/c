@@ -435,7 +435,12 @@ or
 Rectangle(int width, int height):width{width} // curly braces is more common in mordern cpp
 ```
 width{width} first on is the width parameter another one is width attribute   // width_parameter{width_attribute}
+```cpp
+ Rectangle(int width, int height):width{width}, height{height}{ // can define multiplr, and no need to have any thing in body
+            
+        }
 
+```
 if we initialize in the body then compiler gona create he member varaible first and then gona initilize them as an second operation whereas 
 if we use member initializer then this happen in one go
 
@@ -492,7 +497,229 @@ also rememmber cpp create a default cunstory by it's own
 
 #### using explicit keyword
 
+to show the use of explicit , let us create a class and a function 
 
+
+here the class has the only one memenber and constructor is needed only one paramter
+```cpp
+
+class Person{
+public:
+    Person(int age):age{age}{
+
+    }
+
+private:
+    int age;
+};
+
+
+void showPerson(Person person){
+
+}
+
+```
+
+so what happen that when we  do something like (in main fn)
+```cpp
+Person person(20);
+showPerson(person);
+showPerson(20);
+```
+`showPerson(person);` is working as expected but in `showPerson(20);` this case what happen is that it create the Person class intance on the fly(eg. here Person person(20))
+
+in this case `showPerson(20);`  compoier is going to do implicit conversion
+
+but it don't make sence (as we are just passing int and it get converted into class obj)
+
+this is why we should use explicit keyword
+
+so
+
+```cpp
+
+class Person{
+public:
+    explicit Person(int age):age{age}{
+
+    }
+
+private:
+    int age;
+};
+
+
+void showPerson(Person person){
+
+}
+int main(){
+    Person person(20);
+    Person person1{30};
+
+    showPerson(person);
+    showPerson(20); // now we can't create like this.(now we cna't pass integer to this function. now complier will force use to pass Person class obj
+     
+    return 0;
+
+}
+```
+
+
+### constructor delegation
+
+first best way to pass string is like this (const string& color)  string& to not make the copy and also const, so we dono't accidently change the value
+
+here is an example , we have added the third memeber color , andlo used an another constructor with color
+```cpp
+#include <iostream>
+
+using namespace std;
+
+
+class Rectangle{
+
+    public:
+        Rectangle()= default;// default constructor
+        Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+        }
+        // not the below has the duplication of the code
+        Rectangle(int width, int height, const string& color){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+            this->color = color;
+        }
+
+        int getWidth(){
+            return width;
+        }
+
+        void setWidth(int width){
+            if (width<=0){
+                throw invalid_argument("Invalid Width argument is passed");
+            }
+            this->width = width;
+        }
+
+        int getHeight(){
+            return height;
+        }
+
+        void setHeight(int height){
+
+            if (height<=0){
+                throw invalid_argument("Invalid height argument is passed");
+            }
+            this->height = height;
+        }
+
+        int getArea(){
+            return width*height;
+         }
+        
+    private:
+        int width = 0;
+        int height = 0;
+        string color;
+
+};
+
+
+
+int main(){
+
+    Rectangle rec1(10,20); // call this way or
+
+    cout << "Width " << rec1.getWidth() << endl;
+    cout << "Height " << rec1.getHeight() << endl;
+    cout << "Area " << rec1.getArea() << endl;
+
+    return 0;
+
+}
+
+```
+
+
+as you can see the line is duplicated
+
+```cpp
+setWidth(width);
+setHeight(height);
+```
+
+this is where constructor delegation comes to the rescue
+
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+
+class Rectangle{
+
+    public:
+        Rectangle()= default;// default constructor
+        Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+        }
+        // not the below now using constructor delecation, it is using the constructe above
+        Rectangle(int width, int height, const string& color):Rectangle(width,height){
+            cout << "counstructing with color"<< endl;
+            this->color = color;
+        }
+
+        int getWidth(){
+            return width;
+        }
+
+        void setWidth(int width){
+            if (width<=0){
+                throw invalid_argument("Invalid Width argument is passed");
+            }
+            this->width = width;
+        }
+
+        int getHeight(){
+            return height;
+        }
+
+        void setHeight(int height){
+
+            if (height<=0){
+                throw invalid_argument("Invalid height argument is passed");
+            }
+            this->height = height;
+        }
+
+        int getArea(){
+            return width*height;
+         }
+        
+    private:
+        int width = 0;
+        int height = 0;
+        string color;
+
+};
+
+
+
+int main(){
+
+    Rectangle reactange(10,20,"blue");
+    
+    return 0;
+
+}
+
+```
 
 
 
