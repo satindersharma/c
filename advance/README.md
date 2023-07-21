@@ -724,9 +724,158 @@ int main(){
 
 
 
+### the destructor
+
+the destructor is used to relase the memory whiel useing the object
+
+```cpp
+~Rectangle(); //remember we can't overload destructor , so each class should have only one destructor
+```
+here is full exmple
+
+at the end of the main function end the destructor will call
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+
+class Rectangle{
+
+    public:
+        Rectangle()= default;// default constructor
+        Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+        }
+        // not the below now using constructor delecation, it is using the constructe above
+        Rectangle(int width, int height, const string& color):Rectangle(width,height){
+            cout << "counstructing with color"<< endl;
+            this->color = color;
+        }
+
+        ~Rectangle(){
+            cout << "Destructor called"<< endl;
+        }
+
+        int getWidth(){
+            return width;
+        }
+
+        void setWidth(int width){
+            if (width<=0){
+                throw invalid_argument("Invalid Width argument is passed");
+            }
+            this->width = width;
+        }
+
+        int getHeight(){
+            return height;
+        }
+
+        void setHeight(int height){
+
+            if (height<=0){
+                throw invalid_argument("Invalid height argument is passed");
+            }
+            this->height = height;
+        }
+
+        int getArea(){
+            return width*height;
+         }
+        
+    private:
+        int width = 0;
+        int height = 0;
+        string color;
+
+};
 
 
 
+int main(){
+
+    Rectangle reactange(10,20,"blue");
+    
+    return 0;
+
+}
+```
+
+
+### static member
+
+member that belongs to the class itself
+
+
+```cpp
+
+#include <iostream>
+
+using namespace std;
+
+
+class Rectangle{
+
+    public:
+        static int objectCounts = 0;
+        Rectangle()= default;// default constructor
+        Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            objectCounts++;
+            setWidth(width);
+            setHeight(height);
+        }
+
+        int getWidth(){
+            return width;
+        }
+
+        void setWidth(int width){
+            if (width<=0){
+                throw invalid_argument("Invalid Width argument is passed");
+            }
+            this->width = width;
+        }
+
+        int getHeight(){
+            return height;
+        }
+
+        void setHeight(int height){
+
+            if (height<=0){
+                throw invalid_argument("Invalid height argument is passed");
+            }
+            this->height = height;
+        }
+
+        int getArea(){
+            return width*height;
+         }
+        
+    private:
+        int width = 0;
+        int height = 0;
+
+};
+
+
+
+int main(){
+
+    Rectangle reactange(10,20);
+    Rectangle reactange1{10,20};
+    cout << Rectangle::objectCounts << endl; // :: is the scope resolution operator. as it belong to class we can't access on object. it is common for all obj
+    
+    return 0;
+
+}
+ 
+```
 
 
 
