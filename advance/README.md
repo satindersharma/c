@@ -420,10 +420,79 @@ int main(){
 }
 ```
 
+#### Member intitializer list
+
+
+
 we also have a diffrent and more efficent way to intiatalze 
 
+: then one or more intializer
+```cpp
+Rectangle(int width, int height):width(width)
+```
+or
+```cpp
+Rectangle(int width, int height):width{width} // curly braces is more common in mordern cpp
+```
+width{width} first on is the width parameter another one is width attribute   // width_parameter{width_attribute}
 
-if we initialize in the body athen compiler gona create he meember varaible first and then gona 
+if we initialize in the body then compiler gona create he member varaible first and then gona initilize them as an second operation whereas 
+if we use member initializer then this happen in one go
+
+also we can initialize like this for the simple attribute only as we canot write like custom logic or validation
+
+also we can use both of this like
+```cpp
+Rectangle(int width, int height):width{width}{
+            setHeight(height);
+        }
+```
+
+but in our case we cann't use member initializer as we loose the validation logic
+
+so in our case it is better to use like this
+```cpp
+Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+        }
+```
+
+
+
+#### default constructor
+we can create a defult congtsrucgor sho that we can create class wihtou parameter. 
+not that just like function we can overload the constructor
+
+```cpp
+class Rectangle{
+
+    public:
+        Rectangle() = default;// default constructor, also after = default; no need to write its defenation in .h file.
+
+        Rectangle(int width, int height){
+            cout << "callling constructor" << endl;
+            setWidth(width);
+            setHeight(height);
+        }
+
+           }
+        ...
+    private:
+        int width = 0;
+        int height = 0;
+
+};
+
+```
+
+also rememmber cpp create a default cunstory by it's own 
+
+
+#### using explicit keyword
+
+
 
 
 
